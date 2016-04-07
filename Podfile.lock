@@ -1,0 +1,50 @@
+PODS:
+  - AMap2DMap (3.3.0)
+  - AMapLocation (1.2.0)
+  - AMapSearch (3.3.0)
+  - FontIcon (1.0)
+  - HJCornerRadius (0.0.1)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - MJRefresh (3.1.0)
+  - RealReachability (1.1.2)
+  - TPKeyboardAvoiding (1.2.11)
+  - ZXingObjC (3.1.0):
+    - ZXingObjC/All (= 3.1.0)
+  - ZXingObjC/All (3.1.0)
+
+DEPENDENCIES:
+  - AMap2DMap
+  - AMapLocation
+  - AMapSearch
+  - FontIcon (~> 1.0)
+  - HJCornerRadius (from `https://github.com/panghaijiao/HJCornerRadius.git`)
+  - MagicalRecord
+  - MJRefresh
+  - RealReachability (~> 1.1.2)
+  - TPKeyboardAvoiding (~> 1.2.11)
+  - ZXingObjC (~> 3.1.0)
+
+EXTERNAL SOURCES:
+  HJCornerRadius:
+    :git: https://github.com/panghaijiao/HJCornerRadius.git
+
+CHECKOUT OPTIONS:
+  HJCornerRadius:
+    :commit: 10d3341d690fa8416ba9ac715749989c9d65c9c2
+    :git: https://github.com/panghaijiao/HJCornerRadius.git
+
+SPEC CHECKSUMS:
+  AMap2DMap: e53461cdc345375e514579db17dbd721ff9ed9eb
+  AMapLocation: 6d72a8f1c5f2a29a736fcaca3a85173ba3dc5f56
+  AMapSearch: cff4faf59c007f7d1f2bae2d7170c3912783981a
+  FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
+  HJCornerRadius: 54432a8217ce62b21eb49eec93222420e5c4b22b
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  RealReachability: ad8975d056156cb80ef1ab7f62b3ef2c39fbfc08
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
+  ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
+
+COCOAPODS: 0.39.0

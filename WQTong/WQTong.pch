@@ -1,0 +1,22 @@
+//
+//  WQTong.pch
+//  WQTong
+//
+//  Created by WuYongmin on 16/3/25.
+//  Copyright © 2016年 cnbin. All rights reserved.
+//
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+#import "CommonHeader.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <MagicalRecord/MagicalRecord.h>
+
+#endif

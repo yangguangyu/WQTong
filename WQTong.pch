@@ -1,0 +1,15 @@
+//
+//  WQTong.pch
+//  WQTong
+//
+//  Created by WuYongmin on 16/3/25.
+//  Copyright © 2016年 cnbin. All rights reserved.
+//
+
+#ifndef WQTong_pch
+#define WQTong_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* WQTong_pch */
