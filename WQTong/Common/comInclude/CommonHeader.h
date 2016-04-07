@@ -22,7 +22,7 @@
 #import "CommonMarco_Url.h"
 #import "CommonFunction.h"
 #import "ComFatherViewController.h"
-#import "UserInformationBL.h"
+
 
 //高德地图
 #import "MapAPIKey.h"

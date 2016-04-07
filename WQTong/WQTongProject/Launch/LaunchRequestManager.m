@@ -83,7 +83,7 @@
         NSDictionary * userDict = [self.jsonArray objectAtIndex:0];
         NSLog(@"obj is %@",[self.jsonArray objectAtIndex:0]);
         
-        UserInformation * userInformationObject = [[UserInformation alloc]init];
+        UserInformationModel * userInformationObject = [UserInformationModel MR_createEntity];
         userInformationObject.idNumber  =  [userDict objectForKey:@"ID"];
         userInformationObject.userName  =  [userDict objectForKey:@"UserName"];
         userInformationObject.userPwd   =  [userDict objectForKey:@"UserPwd"];
@@ -103,13 +103,8 @@
         userInformationObject.efence    = [userDict objectForKey:@"eFence"];
         userInformationObject.timestamp = [NSDate date];
         
-        UserInformationBL *userInformationBL = [[UserInformationBL alloc]init];
-        [userInformationBL createUserInformation:userInformationObject];
-        
-        NSMutableArray *listData = [[NSMutableArray alloc]init];
-        listData = [userInformationBL findAll];
-        
-        NSLog(@"listData is %@",listData);
+        [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"successLoginAction" object:self userInfo:nil];
     }
 
 }

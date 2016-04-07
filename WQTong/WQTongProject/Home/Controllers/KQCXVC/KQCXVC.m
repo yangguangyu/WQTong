@@ -28,9 +28,8 @@ static const CGFloat MJDuration = 1.0;
     [super viewDidLoad];
     [self initView];
     
-    AddKQXXBL *addKQXXBL = [[AddKQXXBL alloc]init];
 
-    self.locationResultsArray = [addKQXXBL findAll];
+    self.locationResultsArray = [AddKQXXModel MR_findAllSortedBy:@"timestamp" ascending:NO];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshTableView)];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshTableView)];
@@ -40,24 +39,17 @@ static const CGFloat MJDuration = 1.0;
 
 -(void)refreshTableView {
     
-    NSManagedObjectContext *cxt = [[AddKQXXDAO sharedManager] managedObjectContext];
+    NSPredicate *addKQXXModelFilter = [NSPredicate predicateWithFormat:@"isAddKQXXSuccess=%@",@NO];
+    NSFetchRequest *addKQXXModelRequest = [AddKQXXModel MR_requestAllWithPredicate:addKQXXModelFilter];
+    [addKQXXModelRequest setReturnsDistinctResults:NO];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:@"AddKQXXModel" inManagedObjectContext:cxt];
+    NSArray *addKQXXModel = [AddKQXXModel MR_executeFetchRequest:addKQXXModelRequest];
+    NSManagedObjectContext *defaultContext = [NSManagedObjectContext MR_defaultContext];
     
-     NSFetchRequest * fetchRequest = [[NSFetchRequest alloc]init];
-    [fetchRequest setEntity:entityDescription];
-
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isAddKQXXSuccess=%@",@NO];
-    fetchRequest.predicate = predicate;
-    
-    NSError *error = nil;
-    NSArray *addKQXXModelArray = [cxt executeFetchRequest:fetchRequest error:&error];
-    
-    for (AddKQXXModel *addKQXXModelId in addKQXXModelArray) {
+    for (AddKQXXModel *addKQXXModelId in addKQXXModel){
         
-        [self setupRequestContext:cxt andAddKQXXModel:addKQXXModelId];
-//        [self.tableView reloadData];
+        [self setupRequestContext:defaultContext andAddKQXXModel:addKQXXModelId];
+        [self.tableView reloadData];
         
     }
     
@@ -127,15 +119,7 @@ static const CGFloat MJDuration = 1.0;
     }
     
     
-        NSError *savingError = nil;
-        if ([[[AddKQXXDAO sharedManager] managedObjectContext] save:&savingError]){
-    
-            NSLog(@"修改数据成功");
-    
-        } else {
-            NSLog(@"修改数据失败");
-        }
-    
+    [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
 }
 
 #pragma mark - Table view data source

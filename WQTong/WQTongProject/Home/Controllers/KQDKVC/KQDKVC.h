@@ -10,6 +10,8 @@
 #import "AddKQXXModel.h"
 
 @interface KQDKVC : ComFatherViewController<NSXMLParserDelegate,NSURLConnectionDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,MAMapViewDelegate,AMapLocationManagerDelegate>
+
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (assign, nonatomic) Boolean isAddKQXXSuccess;
+
 @end

@@ -108,20 +108,15 @@ __strong static KQDKRequestManager *share = nil;
 #pragma mark - 上传信息:用户名 部门 经度 纬度 位置 类型 图片
 
 - (void)setupRequest {
+
+    NSArray * userInformationModelArray = [UserInformationModel MR_findAllSortedBy:@"timestamp" ascending:NO];
     
-    UserInformationBL *userInformationBL = [[UserInformationBL alloc]init];
-    NSMutableArray *listData = [[NSMutableArray alloc]init];
-    listData = [userInformationBL findAll];
-    
-    for (int i=0 ; i<listData.count; i++) {
+    for (int i=0; i<userInformationModelArray.count; i++) {
         
-        UserInformation *userInformation = [listData objectAtIndex:i];
-        self.username = userInformation.trueName;
-        self.bumen = userInformation.department;
+        UserInformationModel *userInformationModel = [userInformationModelArray objectAtIndex:i];
         
-        NSLog(@"userName is %@",userInformation.trueName);
-        
-        NSLog(@"department is %@",userInformation.department);
+        self.username = userInformationModel.trueName;
+        self.bumen = userInformationModel.department;
     }
     
     NSLog(@"name is %@",self.username);
@@ -180,21 +175,6 @@ __strong static KQDKRequestManager *share = nil;
     [request setValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[envelope length]] forHTTPHeaderField:@"Content-Length"];
     
-    //    NSURLConnection *connection = [[NSURLConnection alloc]
-    //                                    initWithRequest:request delegate:self];
-    //
-    //    if (connection) {
-    //
-    //        if (connection) {
-    //            NSLog(@"连接成功");
-    //            self.isAddKQXXSuccess = YES;
-    //        }else {
-    //            NSLog(@"连接失败");
-    //            self.isAddKQXXSuccess = NO;
-    //        }
-    //    }
-    
-    
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     
@@ -204,6 +184,7 @@ __strong static KQDKRequestManager *share = nil;
     if (data) {
         
         NSLog(@"连接成功");
+      
            self.isAddKQXXSuccess = YES;
     }else {
         NSLog(@"连接失败");

@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddKQXXBL.h"
-#import "AddKQXXDAO.h"
 
 @interface KQCXVC : UITableViewController
 

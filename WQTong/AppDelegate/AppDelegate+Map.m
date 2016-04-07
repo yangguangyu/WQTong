@@ -12,15 +12,17 @@
 
 - (void)configureAPIKey {
     
-    [MAMapServices sharedServices].apiKey = (NSString *)APIKey;
-    [AMapLocationServices sharedServices].apiKey = (NSString *)APIKey;
-    [AMapSearchServices sharedServices].apiKey   = (NSString *)APIKey;;
+    [MAMapServices sharedServices].apiKey = (NSString *)APIKey;//地图
+    [AMapLocationServices sharedServices].apiKey = (NSString *)APIKey;//定位
+    [AMapSearchServices sharedServices].apiKey   = (NSString *)APIKey;//搜索
+    
 }
 
 -(void)initMapService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions {
     
-    [self configureAPIKey];
-    [self configureSQL];
+    [self configureAPIKey];//配置高德地图APIKey
+    [self configureSQL];//配置数据库
+    [self mapLocationNotification];//添加定位监听
 }
 
 //创建MagicalRecord外勤通数据库
@@ -30,7 +32,7 @@
 }
 
 //添加定时上传位置监听
-- (void)addoNotification {
+- (void)mapLocationNotification {
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setupLocation:)
@@ -51,39 +53,18 @@
 - (void)setupLocation:(NSNotification *)notification {
     NSLog(@"定时器开启定位");
     
-    self.amaplocationManager = [[AMapLocationManager alloc] init]; //初始化一次定位
+    self.amaplocationManager = [[AMapLocationManager alloc] init]; //初始化持续定位
     self.amaplocationManager.delegate = self;
     [self.amaplocationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters]; //精确度100米
     [self.amaplocationManager setPausesLocationUpdatesAutomatically:NO]; //后台不停止更新位置
     [self.amaplocationManager setAllowsBackgroundLocationUpdates:YES]; //适配iOS9要加上这句
-    [self.amaplocationManager startUpdatingLocation];
+    [self.amaplocationManager startUpdatingLocation];// 开启持续定位
 
     //初始化检索对象
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
 
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:(600.0) target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-}
-
-#pragma mark - 定时器执行方法
-
-- (void)timerAction {
-    
-    //[self AddWZCJLocation];
-    //[self saveNowDate];//记录当前时间
-    
-    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
-    
-    regeo.location = [AMapGeoPoint locationWithLatitude:self.searchLatitude longitude:self.searchLongitude];
-    
-    regeo.requireExtension = YES;
-    
-    //添加保存坐标
-    [self.timeLocationsArray addObject:regeo.location];
-    
-    //发起逆地理编码
-    [self.search AMapReGoecodeSearch:regeo];
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:(20.0) target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
 }
 
 #pragma mark - 处理停止定位通知
@@ -95,6 +76,30 @@
     [self.timer invalidate];
     self.timer = nil;
     [self saveUploadDataAction];
+}
+
+
+#pragma mark - 定时器执行方法,发起逆地理编码
+
+- (void)timerAction {
+    
+    //[self AddWZCJLocation];
+    [self saveNowDate];//记录当前时间
+    
+    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
+    
+    regeo.location = [AMapGeoPoint locationWithLatitude:self.searchLatitude longitude:self.searchLongitude];
+    
+    regeo.requireExtension = YES;
+    
+    regeo.radius = 10000;
+    
+    //添加保存坐标
+    [self.timeLocationsArray addObject:regeo.location];
+    
+    //发起逆地理编码
+    [self.search AMapReGoecodeSearch:regeo];
+    
 }
 
 #pragma mark - 逆地理编码,获取定时上传的坐标点,用户当前位置
@@ -109,12 +114,14 @@
     }
     
     [wAppself uploadRecordLocation];
+//    NSLog(@"111111111111111");
 }
 
 #pragma mark - MALocationManager Delegate
 
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location {
-    //    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
+    
+    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     self.searchLatitude  = location.coordinate.latitude;
     self.searchLongitude = location.coordinate.longitude;
     self.tempLatitude  =  [NSNumber numberWithDouble:location.coordinate.latitude];
@@ -134,7 +141,9 @@
         self.userName = userObject.userName;
         self.bumen = userObject.department;
     }
-    NSLog(@"upload is %@",self.wz);
+//    NSLog(@"uploadwz is %@",self.wz);
+//    NSLog(@"upload userName is %@",self.userName);
+//    NSLog(@"upload bumen is %@",self.bumen);
     
     NSString *strURL = [[NSString alloc] initWithFormat:webserviceURL];
     NSURL *url = [NSURL URLWithString:[strURL URLEncodedString]];
@@ -176,12 +185,12 @@
                                                       error:&error];
     if (data) {
         
-        NSLog(@"连接成功");
+        NSLog(@"定时连接成功");
         self.isUploadSuccess = YES;
         
     }else {
         
-        NSLog(@"连接失败");
+        NSLog(@"定时连接失败");
         self.isUploadSuccess = NO;
     }
     

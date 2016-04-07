@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UserInformation.h"
-#import "UserInformationBL.h"
+
 
 @interface LaunchRequestManager : NSObject<NSURLConnectionDelegate>
 

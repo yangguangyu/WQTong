@@ -8,7 +8,6 @@
 
 #import "KQDKVC.h"
 #import "KQDKRequestManager.h"
-#import "AddKQXXBL.h"
 
 @interface KQDKVC ()
 
@@ -45,7 +44,6 @@
     NSLog(@"self.mapView.centerCoordinate is %f",self.mapView.centerCoordinate.latitude);
     NSLog(@"self.mapView.centerCoordinate is %f",self.mapView.centerCoordinate.longitude);
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldWzNotification:) name:@"textFieldWz" object:nil];
 }
 
 
@@ -56,11 +54,6 @@
 }
 
 - (void)initUI {
-    
-//    UILabel * locationLabel = [[UILabel alloc]initWithFrame:(CGRectMake(15, 80, 110, 30))];
-//    locationLabel.text = @"所在位置:";
-//    locationLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
-//    [self.view addSubview:locationLabel];
     
     self.reportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.reportButton.frame = CGRectMake(15 ,460, screenWidth-30, 44);
@@ -83,17 +76,16 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"外勤通"
                                                         message:[NSString stringWithFormat:@"签到时间:%@",[CommonFunction stringFromDate:[NSDate date] format:@"yyyy-MM-dd HH:mm:ss"]]
                                                        delegate:self
-                                              cancelButtonTitle:@"取消"
-                                              otherButtonTitles:@"确定",nil];
-        alert.delegate = self;
-        //这个属性继承自UIView，当一个视图中有多个AlertView时，可以用这个属性来区分
-        alert.tag = 1;
-        [alert show];
+                                              cancelButtonTitle:@"下班打卡"
+                                              otherButtonTitles:@"上班打卡",nil];
+    alert.delegate = self;
+    //这个属性继承自UIView，当一个视图中有多个AlertView时，可以用这个属性来区分
+    alert.tag = 1;
+    [alert show];
     
     }];
     [self.view addSubview:self.reportButton];
     
-  
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -106,6 +98,8 @@
             NSLog(@"结束定位");
             [KQDKRequestManager sharedInstance].lx = @"下班";
             [[NSNotificationCenter defaultCenter] postNotificationName:@"stopLocationNotification" object:self userInfo:nil];
+            [self.view makeToast:@"打卡成功" duration:1.0 position:@"center"];
+
             
         }else if (buttonIndex == 1)
         {
@@ -133,6 +127,7 @@
             //上传数据
             [[KQDKRequestManager sharedInstance]setupRequest];
             [self saveAddKQXXDataAction];
+            [self.view makeToast:@"打卡成功" duration:1.0 position:@"center"];
              
         }
         else if (buttonIndex == 1) {
@@ -160,7 +155,7 @@
     
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     
-    self.imgName = [CommonFunction timeStringRecord];
+    self.imgName = [[CommonFunction sharedInstance]timeStringRecord];
     [KQDKRequestManager sharedInstance].imgName = self.imgName;
     
      //保存图片至本地，方法见下文
@@ -249,12 +244,6 @@
              NSLog(@"poi is %@",[NSString stringWithFormat:@"%@", regeocode.formattedAddress]);
              NSLog(@"wz is %@",[NSString stringWithFormat:@"%@", regeocode.formattedAddress]);
             
-//            if (addKQXXVSelf.wz.length>0) {
-//                
-//                  [[NSNotificationCenter defaultCenter] postNotificationName:@"textFieldWz" object:self];
-//                
-//            }
-            
         }
         else {
             //重新定位
@@ -277,38 +266,7 @@
 
 - (void)saveAddKQXXDataAction {
 
-    
-//    AddKQXXModel * addKQXXModelObject = [AddKQXXModel MR_createEntity];
-    
-//    addKQXXModelObject.username = self.username; //用户名
-//    addKQXXModelObject.bumen    = self.bumen;       //部门
-//    addKQXXModelObject.poi      = self.poi;
-//    addKQXXModelObject.wz       = self.wz;
-//    addKQXXModelObject.lx       = self.lx;
-//    NSLog(@"self.longitudeXXXX is %f",self.longitudeX);
-//    NSLog(@"self.longitudeXXXX is %@",[NSNumber numberWithDouble:self.longitudeX]);
-//    
-//    addKQXXModelObject.x        = [NSNumber numberWithDouble:self.longitudeX];  //经度
-//    addKQXXModelObject.y        = [NSNumber numberWithDouble:self.latitudeY]; //纬度
-//    addKQXXModelObject.tp       = self.tp;
-//    
-//    [self saveNowDate];
-//    
-//    addKQXXModelObject.timestamp = [self.datePicker date];
-//    addKQXXModelObject.isAddKQXXSuccess = [NSNumber numberWithBool:self.isAddKQXXSuccess];
-//    
-//    NSLog(@"addKQXXModelObject.username is %@",addKQXXModelObject.username);
-//    NSLog(@"addKQXXModelObject.bumen is %@",addKQXXModelObject.bumen);
-//    NSLog(@"addKQXXModelObject.poi  is %@",addKQXXModelObject.poi);
-//    NSLog(@"addKQXXModelObject.lx is %@",addKQXXModelObject.lx);
-//    NSLog(@"addKQXXModelObject.x   is %@",addKQXXModelObject.x);
-//    NSLog(@"addKQXXModelObject.y   is %@",addKQXXModelObject.y );
-//    NSLog(@"addKQXXModelObject.tp is %@",addKQXXModelObject.tp);
-//    NSLog(@"addKQXXModelObject.isQianDaoSuccess  is %@",[NSNumber numberWithBool:self.isAddKQXXSuccess]);
-//    [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
-    
-    
-     AddKQXX * addKQXXModelObject = [[AddKQXX alloc]init];
+     AddKQXXModel * addKQXXModelObject = [AddKQXXModel MR_createEntity];
     
      addKQXXModelObject.poi      = self.poi;
      addKQXXModelObject.wz       = self.wz;
@@ -321,6 +279,7 @@
      addKQXXModelObject.tp       = [KQDKRequestManager sharedInstance].tp;
     
 
+    
     NSTimeZone *zone = [NSTimeZone defaultTimeZone];//获得当前应用程序默认的时区
     NSInteger interval = [zone secondsFromGMTForDate:[NSDate date]];//以秒为单位返回当前应用程序与世界标准时间（格林威尼时间）的时差
     NSDate *nowDate=[NSDate dateWithTimeIntervalSinceNow:interval];
@@ -330,24 +289,21 @@
     addKQXXModelObject.timestamp = [self.datePicker date];
     addKQXXModelObject.isAddKQXXSuccess = [NSNumber numberWithBool:[KQDKRequestManager sharedInstance].isAddKQXXSuccess];
     
- 
-    UserInformationBL *userInformationBL = [[UserInformationBL alloc]init];
-    NSMutableArray *listData = [[NSMutableArray alloc]init];
-    listData = [userInformationBL findAll];
-    
-    for (int i=0 ; i<listData.count; i++) {
-        
-        UserInformation *userInformation = [listData objectAtIndex:i];
-        addKQXXModelObject.username = userInformation.trueName;
-        addKQXXModelObject.bumen = userInformation.department;
-        
-        NSLog(@"userName is %@",userInformation.trueName);
-        
-        NSLog(@"department is %@",userInformation.department);
-    }
 
-    NSLog(@"savename is %@",addKQXXModelObject.username);
-    NSLog(@"savebumen is %@",addKQXXModelObject.bumen);
+    
+    NSArray *userInformationModelArray = [UserInformationModel MR_findAllSortedBy:@"timestamp" ascending:NO];
+    
+    for (int i=0; i<userInformationModelArray.count; i++) {
+        
+        UserInformationModel *userInformationModel = [userInformationModelArray objectAtIndex:i];
+        
+        addKQXXModelObject.username = userInformationModel.trueName;
+        addKQXXModelObject.bumen = userInformationModel.department;
+    }
+    
+    
+    NSLog(@"saveUsername is %@",addKQXXModelObject.username);
+    NSLog(@"saveBumen is %@",addKQXXModelObject.bumen);
     NSLog(@"savepoi is %@",self.poi);
     NSLog(@"savewz is %@",self.wz);
     NSLog(@"savex is %@", addKQXXModelObject.x);
@@ -356,15 +312,9 @@
     NSLog(@"savetp is %@",[KQDKRequestManager sharedInstance].tp);
     NSLog(@"saveisADdd is %d",[KQDKRequestManager sharedInstance].isAddKQXXSuccess);
     NSLog(@"savetime is %@",addKQXXModelObject.timestamp);
-   
     
-    AddKQXXBL *addKQXXBL = [[AddKQXXBL alloc]init];
-    [addKQXXBL createAddKQXX:addKQXXModelObject];
-
-    NSMutableArray *listData1 = [[NSMutableArray alloc]init];
-    listData1 = [addKQXXBL findAll];
-
-    NSLog(@"listData is %@",listData1);
+   [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
+    
 }
 
 - (void)dealloc{
