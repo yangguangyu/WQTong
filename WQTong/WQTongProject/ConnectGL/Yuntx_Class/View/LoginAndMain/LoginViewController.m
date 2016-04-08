@@ -26,16 +26,6 @@
 //界面布局
 -(void)prepareUI {
     
-//    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
-//    UILongPressGestureRecognizer *longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(changeIPAndAppToken:)];
-//    [titleView addGestureRecognizer:longGesture];
-    
-//    UILabel	*titleText = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 80, 20)];
-//    [titleText setText:@"通讯录"];
-//    titleText.textColor = [UIColor whiteColor];
-//    [titleView addSubview:titleText];
-//    self.navigationItem.titleView = titleView;
-    
     self.title =@"通讯录";
     
     CGFloat frameY = 30.0f;
@@ -69,7 +59,7 @@
     [_password setAutocorrectionType:UITextAutocorrectionTypeNo];//去掉键盘输入时默认字母为大写
     [_password setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 
-    _password.placeholder = @"输入您的VoIP密码";
+    _password.placeholder = @"请输入您的VoIP密码";
     _password.keyboardAppearance = UIKeyboardTypeASCIICapable;
     [self.view addSubview:_password];
     
@@ -79,7 +69,7 @@
         textfile = _userName;
     } else {
         [DemoGlobalClass sharedInstance].loginAuthType = LoginAuthType_PasswordAuth;
-        _userName.placeholder = @"输入您的VoIP账号";
+        _userName.placeholder = @"请输入您的VoIP账号";
     }
     _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextBtn.frame =CGRectMake(15, textfile.frame.origin.y+textfile.frame.size.height+15.0f, screenWidth-30, 45);

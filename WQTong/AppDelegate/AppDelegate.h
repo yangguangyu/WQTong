@@ -10,16 +10,12 @@
 #import "LoginViewController.h"
 #import "MainViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,MAMapViewDelegate,AMapSearchDelegate,AMapLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 //AppDelegate+RLYunService属性
 @property (strong, nonatomic) NSString *callid;//容联
-
-//@property (nonatomic, strong) LoginViewController *loginView;
-//@property (nonatomic, strong) MainViewController *mainView;
-//@property (nonatomic, strong) NSDateFormatter *dataformater;
 
 
 //AppDelegate+Map属性

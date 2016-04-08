@@ -2911,10 +2911,10 @@
 		618FDC4B1CB6511900DB68B1 /* WZCJLocHistoryModel */ = {
 			isa = PBXGroup;
 			children = (
-				618FDC4C1CB6511900DB68B1 /* WzcLocationModel.h */,
-				618FDC4D1CB6511900DB68B1 /* WzcLocationModel.m */,
 				618FDC4E1CB6511900DB68B1 /* WzcLocObjectModel.h */,
 				618FDC4F1CB6511900DB68B1 /* WzcLocObjectModel.m */,
+				618FDC4C1CB6511900DB68B1 /* WzcLocationModel.h */,
+				618FDC4D1CB6511900DB68B1 /* WzcLocationModel.m */,
 			);
 			path = WZCJLocHistoryModel;
 			sourceTree = "<group>";

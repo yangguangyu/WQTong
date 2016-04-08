@@ -2,7 +2,7 @@
 //  GlobalResource.m
 //  Movie
 //
-//  Created by Apple on 10/15/15.
+//  Created by ChenBinbin on 10/15/15.
 //  Copyright © 2015 cnbin. All rights reserved.
 //
 

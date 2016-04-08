@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-
 #import "TimerUploadModel.h"
 #import "UserInformationModel.h"
 #import "WzcLocObjectModel.h"
 #import "WzcLocationModel.h"
 
-@interface AppDelegate (Map)<MAMapViewDelegate,AMapSearchDelegate,AMapLocationManagerDelegate>
+@interface AppDelegate (Map)
 
 -(void)initMapService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions;
 

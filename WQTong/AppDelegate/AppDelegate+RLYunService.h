@@ -13,7 +13,6 @@
 
 -(void)initRLYunService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions;
 
-
 +(AppDelegate*)shareInstance;
 -(void)updateSoftAlertViewShow:(NSString*)message isForceUpdate:(BOOL)isForce;
 -(void)toast:(NSString*)message;

@@ -114,15 +114,16 @@ static float const mapPadding = 1.1f;
     self.mapView.delegate = self;
     
     //历史轨迹查询Label
-    self.historylabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 80,75, 30)];
-    self.historylabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-    self.historylabel.text = @"历史轨迹查询";
+    self.historylabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 80,100, 30)];
+    self.historylabel.font = [UIFont fontWithName:@"Helvetica" size:15];
+    self.historylabel.text = @"历史轨迹查询:";
+    self.historylabel.textAlignment = kCTTextAlignmentCenter;
     self.historylabel.textColor = [UIColor blackColor];
     [self.view addSubview:self.historylabel];
     
-    self.startTimeTextField = [[UITextField alloc]initWithFrame:CGRectMake(95, 80, 120, 30)];
+    self.startTimeTextField = [[UITextField alloc]initWithFrame:CGRectMake(self.historylabel.frame.origin.x+self.historylabel.frame.size.width+5, 80, 160, 30)];
     self.startTimeTextField.backgroundColor = [UIColor clearColor];
-    self.startTimeTextField.font = [UIFont fontWithName:@"Helvetica" size:10];
+    self.startTimeTextField.font = [UIFont fontWithName:@"Helvetica" size:14];
     self.startTimeTextField.layer.cornerRadius=5.0f;
     self.startTimeTextField.layer.masksToBounds=YES;
     self.startTimeTextField.layer.borderColor= [themeColor CGColor];;
@@ -133,7 +134,7 @@ static float const mapPadding = 1.1f;
 
     
     //查询按钮
-    self.checkButton = [[UIButton alloc] initWithFrame:CGRectMake(225,75,60,40)];
+    self.checkButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-80,75,60,40)];
     [self.checkButton setTitle:@"查询" forState:UIControlStateNormal];
     [self.checkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.checkButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
@@ -141,6 +142,7 @@ static float const mapPadding = 1.1f;
     self.checkButton.layer.borderWidth = 2;
     self.checkButton.layer.borderColor = (__bridge CGColorRef _Nullable)(themeColor);
     self.checkButton.layer.masksToBounds = YES;
+    [self.checkButton setShowsTouchWhenHighlighted:YES];
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect: self.checkButton.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
@@ -153,13 +155,14 @@ static float const mapPadding = 1.1f;
     
     
     //回放按钮
-    self.rePlayButton = [[UIButton alloc] initWithFrame:CGRectMake(210,screenHeiht-250,60,40)];
+    self.rePlayButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-100,screenHeiht-250,60,40)];
     self.rePlayButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
     self.rePlayButton.backgroundColor = themeColor;
     self.rePlayButton.layer.borderWidth = 2;
     self.rePlayButton.layer.borderColor = (__bridge CGColorRef _Nullable)(themeColor);
     self.rePlayButton.layer.masksToBounds = YES;
-    
+    [self.rePlayButton setShowsTouchWhenHighlighted:YES];
+
     UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.rePlayButton.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
     CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
     maskLayer2.frame = self.rePlayButton.bounds;

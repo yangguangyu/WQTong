@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate+Map.h"
+#define  timerLoop 10.0 //10s上传一次
 
 @implementation AppDelegate (Map)
 
@@ -64,7 +65,7 @@
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
 
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:(20.0) target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:(timerLoop) target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
 }
 
 #pragma mark - 处理停止定位通知
@@ -88,14 +89,19 @@
     
     AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
     
+    NSLog(@"self.searchLatitude is %f",self.searchLatitude);
+    NSLog(@"self.searchLongitude is %f",self.searchLongitude);
+    
     regeo.location = [AMapGeoPoint locationWithLatitude:self.searchLatitude longitude:self.searchLongitude];
-    
     regeo.requireExtension = YES;
-    
     regeo.radius = 10000;
     
-    //添加保存坐标
-    [self.timeLocationsArray addObject:regeo.location];
+    NSLog(@"regeo.location is %@",regeo.location);
+    if (regeo.location.longitude>0 &&regeo.location.latitude>0) {
+        
+        //添加保存坐标
+        [self.timeLocationsArray addObject:regeo.location];
+    }
     
     //发起逆地理编码
     [self.search AMapReGoecodeSearch:regeo];
@@ -114,7 +120,6 @@
     }
     
     [wAppself uploadRecordLocation];
-//    NSLog(@"111111111111111");
 }
 
 #pragma mark - MALocationManager Delegate
@@ -241,6 +246,7 @@
         [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
         
     }
+
     NSLog(@"app newRun is %@",newRun);
 }
 

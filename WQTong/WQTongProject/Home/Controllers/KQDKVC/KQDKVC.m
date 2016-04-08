@@ -36,8 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initUI];
     [self initMapView];
+    [self initUI];
     [self mapViewLocation];
 
     //self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
@@ -56,7 +56,7 @@
 - (void)initUI {
     
     self.reportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.reportButton.frame = CGRectMake(15 ,460, screenWidth-30, 44);
+    self.reportButton.frame = CGRectMake(15 ,self.mapView.frame.size.height+self.mapView.frame.origin.y+10, screenWidth-30, 44);
     [self.reportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.reportButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
     self.reportButton.backgroundColor = themeColor;
@@ -89,7 +89,7 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"clickButtonAtIndex:%d",buttonIndex);
+  //  NSLog(@"clickButtonAtIndex:%d",buttonIndex);
     
     if (alertView.tag == 1) {
         
@@ -179,7 +179,7 @@
 
 - (void)initMapView {
     
-    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(15, 80, screenWidth-30, 360)];
+    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(15, 80, screenWidth-30, screenHeiht-200)];
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;//YES 为打开定位，NO为关闭定位
     [self.view addSubview:self.mapView];

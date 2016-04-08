@@ -37,10 +37,15 @@ static float const mapPadding = 1.1f;
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
-                                                                              style: UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                            action:@selector(dismissAction:)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+//                                                                              style: UIBarButtonItemStylePlain
+//                                                                             target:self
+//                                                                            action:@selector(dismissAction:)];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"title_bar_back"] style:UIBarButtonItemStyleDone target:self action:@selector(returnClick)];
+    self.navigationItem.leftBarButtonItem = item;
+
+    
     
     self.rePlayButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-120 ,screenHeiht-250,60, 40)];
     
@@ -49,6 +54,7 @@ static float const mapPadding = 1.1f;
     self.rePlayButton.layer.borderWidth = 2;
     self.rePlayButton.layer.borderColor = (__bridge CGColorRef _Nullable)(themeColor);
     self.rePlayButton.layer.masksToBounds = YES;
+    [self.rePlayButton setShowsTouchWhenHighlighted:YES];
     
     UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.rePlayButton.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
     CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
@@ -60,6 +66,18 @@ static float const mapPadding = 1.1f;
     [self.rePlayButton addTarget:self action:@selector(handleRunAction) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:self.rePlayButton];
 
+}
+
+- (void)returnClick {
+    
+    if ([[self.navigationController viewControllers] count] ==1) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

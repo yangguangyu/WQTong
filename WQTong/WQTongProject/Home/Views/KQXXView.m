@@ -104,7 +104,7 @@
            
            //5.定时上传记录
            UIView *subView5 = [[UIView alloc]initWithFrame:(CGRect){subView1.frame.size.width+subView1.frame.origin.x+2,subView1.frame.origin.y+subView1.frame.size.height+2,screenWidth/3,screenWidth/3}];
-           UIImageView *subImgView5 = [[UIImageView alloc]initWithFrame:(CGRect){30*scaleModulus,20,44,44}];
+           UIImageView *subImgView5 = [[UIImageView alloc]initWithFrame:(CGRect){30*scaleModulus+5,20,44,44}];
            subImgView5.image =[IconFont imageWithIcon:[IconFont icon:@"fa_clock_o" fromFont:fontAwesome] fontName:fontAwesome iconColor:UIRGBColor(0,101,229,1) iconSize:24.0f];
            [subView5 addSubview:subImgView5];
            UITapGestureRecognizer* singleTap5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(subView5Action:)];

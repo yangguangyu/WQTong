@@ -38,7 +38,7 @@ static float const mapPadding = 1.1f;
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
     
-    self.rePlayButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-120 ,screenHeiht-250,60, 40)];
+    self.rePlayButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-100 ,screenHeiht-250,60, 40)];
     self.rePlayButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
     self.rePlayButton.backgroundColor = themeColor;
     self.rePlayButton.layer.borderWidth = 2;
@@ -52,6 +52,7 @@ static float const mapPadding = 1.1f;
     self.rePlayButton.layer.mask = maskLayer2;
 
     [self.rePlayButton setTitle:@"回放" forState:UIControlStateNormal];
+    [self.rePlayButton setShowsTouchWhenHighlighted:YES];
     [self.rePlayButton addTarget:self action:@selector(handleRunAction) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:self.rePlayButton];
     

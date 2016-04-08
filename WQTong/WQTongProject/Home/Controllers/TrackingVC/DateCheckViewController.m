@@ -25,18 +25,24 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewDidLoad];
     self.title = @"历史记录";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
-                                                                              style: UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(dateRunAction)];
     
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"title_bar_back"] style:UIBarButtonItemStyleDone target:self action:@selector(returnClick)];
+    self.navigationItem.leftBarButtonItem = item;
+
     self.wzcLocObjectModelArray = [WzcLocObjectModel MR_findAllSortedBy:@"timestamp" ascending:NO];
     //NSLog(@"self.wzcLocObjectModelArray is %@",self.wzcLocObjectModelArray);
 }
 
-- (void)dateRunAction {
+- (void)returnClick {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[self.navigationController viewControllers] count] ==1) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -68,7 +74,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 
     WzcLocObjectModel * wzcLocObjectModelCell = [self.wzcLocObjectModelArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [[NSString stringWithFormat:@"%@",wzcLocObjectModelCell.timestamp]substringToIndex:19];
+    cell.textLabel.text = [[NSString stringWithFormat:@"时间:%@",wzcLocObjectModelCell.timestamp]substringToIndex:19];
     cell.accessoryType =  UITableViewCellAccessoryCheckmark;
     
     return cell;
