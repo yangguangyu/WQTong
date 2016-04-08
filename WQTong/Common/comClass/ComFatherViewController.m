@@ -80,7 +80,7 @@
 
 - (void)returnToPreviosView {
     
-   }
+}
 
 - (void)initFatherUIControl {
     

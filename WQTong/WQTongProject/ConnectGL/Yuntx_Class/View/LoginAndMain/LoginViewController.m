@@ -26,16 +26,18 @@
 //界面布局
 -(void)prepareUI {
     
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
-    UILongPressGestureRecognizer *longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(changeIPAndAppToken:)];
-    [titleView addGestureRecognizer:longGesture];
+//    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
+//    UILongPressGestureRecognizer *longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(changeIPAndAppToken:)];
+//    [titleView addGestureRecognizer:longGesture];
     
-    UILabel	*titleText = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 80, 20)];
-    [titleText setText:@"通讯录"];
-    titleText.textColor = [UIColor whiteColor];
-    [titleView addSubview:titleText];
-    self.navigationItem.titleView = titleView;
- 
+//    UILabel	*titleText = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 80, 20)];
+//    [titleText setText:@"通讯录"];
+//    titleText.textColor = [UIColor whiteColor];
+//    [titleView addSubview:titleText];
+//    self.navigationItem.titleView = titleView;
+    
+    self.title =@"通讯录";
+    
     CGFloat frameY = 30.0f;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7){
 
@@ -47,14 +49,26 @@
     self.navigationItem.rightBarButtonItem = rightBtn;
 
     _userName = [[UITextField alloc]initWithFrame:CGRectMake(15.0f, frameY, screenWidth-30, 44.0f)];
-    _userName.borderStyle = UITextBorderStyleLine;
+    _userName.layer.cornerRadius=5.0f;
+    _userName.layer.masksToBounds=YES;
+    _userName.layer.borderColor= [themeColor CGColor];;
+    _userName.layer.borderWidth= 1.0f;
+    [_userName setAutocorrectionType:UITextAutocorrectionTypeNo];//去掉键盘输入时默认字母为大写
+    [_userName setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+
     _userName.placeholder = @"请输入您的手机号";
     _userName.keyboardType = UIKeyboardTypeNumberPad;
     _userName.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"lasttimeuser"];
     [self.view addSubview:_userName];
     
     _password = [[UITextField alloc] initWithFrame:CGRectMake(15.0f, _userName.frame.origin.y+_userName.frame.size.height+15.0f, screenWidth-30, 44.0f)];
-    _password.borderStyle = UITextBorderStyleLine;
+    _password.layer.cornerRadius=5.0f;
+    _password.layer.masksToBounds=YES;
+    _password.layer.borderColor= [themeColor CGColor];;
+    _password.layer.borderWidth= 1.0f;
+    [_password setAutocorrectionType:UITextAutocorrectionTypeNo];//去掉键盘输入时默认字母为大写
+    [_password setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+
     _password.placeholder = @"输入您的VoIP密码";
     _password.keyboardAppearance = UIKeyboardTypeASCIICapable;
     [self.view addSubview:_password];

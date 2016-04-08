@@ -37,17 +37,17 @@
     
     //初始化文本框和登录按钮
      _nameTextField = [[UITextField alloc]initWithFrame:(CGRect){30,80,screenWidth-60,44}];
-     _nameTextField.placeholder = @"请输入手机号";
+     _nameTextField.placeholder = @"请输入您的手机号";
      _nameTextField.font = [UIFont fontWithName:@"Helvetica" size:15];
      _nameTextField.layer.cornerRadius=5.0f;
      _nameTextField.layer.masksToBounds=YES;
      _nameTextField.layer.borderColor= [themeColor CGColor];;
      _nameTextField.layer.borderWidth= 1.0f;
-     [_nameTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
+     [_nameTextField setAutocorrectionType:UITextAutocorrectionTypeNo];//去掉键盘输入时默认字母为大写
      [_nameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     
      _passwordTextField = [[UITextField alloc]initWithFrame:(CGRect){30,_nameTextField.frame.size.height+_nameTextField.frame.origin.y+10,screenWidth-30*2,44}];
-     _passwordTextField.placeholder = @"请输入密码";
+     _passwordTextField.placeholder = @"请输入您的密码";
      _passwordTextField.font = [UIFont fontWithName:@"Helvetica" size:15];
      _passwordTextField.layer.cornerRadius=5.0f;
      _passwordTextField.layer.masksToBounds=YES;
@@ -94,6 +94,7 @@
 }
 
 #pragma mark - 加载成功
+
 - (void)successLoginAction:(NSNotification *)notification{
     
     [self.view makeToast:@"登录成功" duration:1.0 position:@"center"];

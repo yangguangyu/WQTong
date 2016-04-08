@@ -51,7 +51,6 @@
      
         //考勤打卡
         [self performSegueWithIdentifier:@"KQDKVCSegue" sender:self];
-        
     }
     
     if ([subViewIndex isEqualToString:@"subView2"]) {
@@ -63,10 +62,12 @@
     if ([subViewIndex isEqualToString:@"subView3"]) {
         
         //历史轨迹
-        [self performSegueWithIdentifier:@"LSGJVCSegue" sender:self];
+        [self performSegueWithIdentifier:@"OldTrackingVCSegue" sender:self];
     }
     
     if ([subViewIndex isEqualToString:@"subView4"]) {
+        
+        //通讯录
         
         //是否有登录信息
         [DemoGlobalClass sharedInstance].isAutoLogin = [self getLoginInfo];
@@ -82,6 +83,15 @@
         }
 
     }
+
+    
+    if ([subViewIndex isEqualToString:@"subView5"]) {
+        
+        NSLog(@"5");
+        //定时上传
+        [self performSegueWithIdentifier:@"TimerUploadVCSegue" sender:self];
+    }
+
     
 }
 
@@ -97,8 +107,6 @@
 //通讯录登录
 - (void)showTXLLogin {
     
-    //[self performSegueWithIdentifier:@"TXLLoginSegue" sender:self];
-    
     UIStoryboard * storyBoard = [UIStoryboard
                                  storyboardWithName:@"Main" bundle:nil];
    
@@ -109,8 +117,6 @@
 //通讯录主页面
 - (void)showTXLMaster {
 
-   // [self performSegueWithIdentifier:@"TXLMasterSegue" sender:self];
-    
     UIStoryboard * storyBoard = [UIStoryboard
                                  storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc2 = [storyBoard instantiateViewControllerWithIdentifier:@"MainStoryboardID"];

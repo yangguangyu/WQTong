@@ -557,7 +557,6 @@
 		617DAE7A1CACF41A0014269D /* KQXXGLVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DAE791CACF41A0014269D /* KQXXGLVC.m */; };
 		617DAE7D1CACF4210014269D /* KQDKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DAE7C1CACF4210014269D /* KQDKVC.m */; };
 		617DAE801CACF4270014269D /* KQCXVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DAE7F1CACF4270014269D /* KQCXVC.m */; };
-		617DAE831CACF42F0014269D /* LSGJVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DAE821CACF42F0014269D /* LSGJVC.m */; };
 		617DAE861CACF43A0014269D /* KQXXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DAE851CACF43A0014269D /* KQXXView.m */; };
 		617DAE8C1CAD1A810014269D /* KQDKRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DAE8B1CAD1A810014269D /* KQDKRequestManager.m */; };
 		617EB7851CAA53E100DA87EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617EB7841CAA53E100DA87EE /* UIKit.framework */; };
@@ -582,6 +581,12 @@
 		618FDC531CB6511900DB68B1 /* WzcLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC4D1CB6511900DB68B1 /* WzcLocationModel.m */; };
 		618FDC541CB6511900DB68B1 /* WzcLocObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC4F1CB6511900DB68B1 /* WzcLocObjectModel.m */; };
 		618FDC571CB6513000DB68B1 /* AddKQXXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC561CB6513000DB68B1 /* AddKQXXModel.m */; };
+		618FDC711CB73FC300DB68B1 /* GlobalResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC701CB73FC300DB68B1 /* GlobalResource.m */; };
+		618FDC741CB73FD200DB68B1 /* TimerUploadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC731CB73FD200DB68B1 /* TimerUploadTableViewController.m */; };
+		618FDC7D1CB73FE700DB68B1 /* CheckRusultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC761CB73FE700DB68B1 /* CheckRusultsViewController.m */; };
+		618FDC7E1CB73FE700DB68B1 /* DateCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC781CB73FE700DB68B1 /* DateCheckViewController.m */; };
+		618FDC7F1CB73FE700DB68B1 /* DateDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC7A1CB73FE700DB68B1 /* DateDetailsViewController.m */; };
+		618FDC801CB73FE700DB68B1 /* OldTrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC7C1CB73FE700DB68B1 /* OldTrackingViewController.m */; };
 		61EA18CA1CA3FCE6004C74C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EA18C91CA3FCE6004C74C3 /* main.m */; };
 		61EA18D31CA3FCE6004C74C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61EA18D11CA3FCE6004C74C3 /* Main.storyboard */; };
 		61EA18D51CA3FCE6004C74C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61EA18D41CA3FCE6004C74C3 /* Images.xcassets */; };
@@ -1305,8 +1310,6 @@
 		617DAE7C1CACF4210014269D /* KQDKVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KQDKVC.m; path = WQTongProject/Home/Controllers/KQDKVC/KQDKVC.m; sourceTree = "<group>"; };
 		617DAE7E1CACF4270014269D /* KQCXVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KQCXVC.h; path = WQTongProject/Home/Controllers/KQCXVC/KQCXVC.h; sourceTree = "<group>"; };
 		617DAE7F1CACF4270014269D /* KQCXVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KQCXVC.m; path = WQTongProject/Home/Controllers/KQCXVC/KQCXVC.m; sourceTree = "<group>"; };
-		617DAE811CACF42F0014269D /* LSGJVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSGJVC.h; path = WQTongProject/Home/Controllers/LSGJVC/LSGJVC.h; sourceTree = "<group>"; };
-		617DAE821CACF42F0014269D /* LSGJVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSGJVC.m; path = WQTongProject/Home/Controllers/LSGJVC/LSGJVC.m; sourceTree = "<group>"; };
 		617DAE841CACF43A0014269D /* KQXXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KQXXView.h; path = WQTongProject/Home/Views/KQXXView.h; sourceTree = "<group>"; };
 		617DAE851CACF43A0014269D /* KQXXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KQXXView.m; path = WQTongProject/Home/Views/KQXXView.m; sourceTree = "<group>"; };
 		617DAE8A1CAD1A810014269D /* KQDKRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KQDKRequestManager.h; path = WQTongProject/Home/Controllers/KQDKVC/KQDKRequestManager.h; sourceTree = "<group>"; };
@@ -1402,6 +1405,18 @@
 		618FDC4F1CB6511900DB68B1 /* WzcLocObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WzcLocObjectModel.m; sourceTree = "<group>"; };
 		618FDC551CB6513000DB68B1 /* AddKQXXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddKQXXModel.h; sourceTree = "<group>"; };
 		618FDC561CB6513000DB68B1 /* AddKQXXModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddKQXXModel.m; sourceTree = "<group>"; };
+		618FDC6F1CB73FC300DB68B1 /* GlobalResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalResource.h; path = GlobalResource/GlobalResource.h; sourceTree = "<group>"; };
+		618FDC701CB73FC300DB68B1 /* GlobalResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalResource.m; path = GlobalResource/GlobalResource.m; sourceTree = "<group>"; };
+		618FDC721CB73FD200DB68B1 /* TimerUploadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerUploadTableViewController.h; path = WQTongProject/Home/Controllers/TimerUploadVC/TimerUploadTableViewController.h; sourceTree = "<group>"; };
+		618FDC731CB73FD200DB68B1 /* TimerUploadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerUploadTableViewController.m; path = WQTongProject/Home/Controllers/TimerUploadVC/TimerUploadTableViewController.m; sourceTree = "<group>"; };
+		618FDC751CB73FE700DB68B1 /* CheckRusultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckRusultsViewController.h; path = WQTongProject/Home/Controllers/TrackingVC/CheckRusultsViewController.h; sourceTree = "<group>"; };
+		618FDC761CB73FE700DB68B1 /* CheckRusultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckRusultsViewController.m; path = WQTongProject/Home/Controllers/TrackingVC/CheckRusultsViewController.m; sourceTree = "<group>"; };
+		618FDC771CB73FE700DB68B1 /* DateCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateCheckViewController.h; path = WQTongProject/Home/Controllers/TrackingVC/DateCheckViewController.h; sourceTree = "<group>"; };
+		618FDC781CB73FE700DB68B1 /* DateCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateCheckViewController.m; path = WQTongProject/Home/Controllers/TrackingVC/DateCheckViewController.m; sourceTree = "<group>"; };
+		618FDC791CB73FE700DB68B1 /* DateDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateDetailsViewController.h; path = WQTongProject/Home/Controllers/TrackingVC/DateDetailsViewController.h; sourceTree = "<group>"; };
+		618FDC7A1CB73FE700DB68B1 /* DateDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateDetailsViewController.m; path = WQTongProject/Home/Controllers/TrackingVC/DateDetailsViewController.m; sourceTree = "<group>"; };
+		618FDC7B1CB73FE700DB68B1 /* OldTrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OldTrackingViewController.h; path = WQTongProject/Home/Controllers/TrackingVC/OldTrackingViewController.h; sourceTree = "<group>"; };
+		618FDC7C1CB73FE700DB68B1 /* OldTrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OldTrackingViewController.m; path = WQTongProject/Home/Controllers/TrackingVC/OldTrackingViewController.m; sourceTree = "<group>"; };
 		61EA18C51CA3FCE6004C74C3 /* WQTong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WQTong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EA18C91CA3FCE6004C74C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61EA18D21CA3FCE6004C74C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1589,7 +1604,8 @@
 		613DDD531CA67ECB00E20DB0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				617EB78E1CAA688D00DA87EE /* LSGJVC */,
+				618FDC581CB731A000DB68B1 /* TimerUploadTableVC */,
+				617EB78E1CAA688D00DA87EE /* TrackingVC */,
 				617EB77D1CAA20CE00DA87EE /* KQCXVC */,
 				617EB7791CAA1D3F00DA87EE /* KQDKVC */,
 				617EB7781CAA1D2E00DA87EE /* HomeVC */,
@@ -2695,13 +2711,19 @@
 			name = KQCXVC;
 			sourceTree = "<group>";
 		};
-		617EB78E1CAA688D00DA87EE /* LSGJVC */ = {
+		617EB78E1CAA688D00DA87EE /* TrackingVC */ = {
 			isa = PBXGroup;
 			children = (
-				617DAE811CACF42F0014269D /* LSGJVC.h */,
-				617DAE821CACF42F0014269D /* LSGJVC.m */,
+				618FDC751CB73FE700DB68B1 /* CheckRusultsViewController.h */,
+				618FDC761CB73FE700DB68B1 /* CheckRusultsViewController.m */,
+				618FDC771CB73FE700DB68B1 /* DateCheckViewController.h */,
+				618FDC781CB73FE700DB68B1 /* DateCheckViewController.m */,
+				618FDC791CB73FE700DB68B1 /* DateDetailsViewController.h */,
+				618FDC7A1CB73FE700DB68B1 /* DateDetailsViewController.m */,
+				618FDC7B1CB73FE700DB68B1 /* OldTrackingViewController.h */,
+				618FDC7C1CB73FE700DB68B1 /* OldTrackingViewController.m */,
 			);
-			name = LSGJVC;
+			name = TrackingVC;
 			sourceTree = "<group>";
 		};
 		618FDBCF1CB5E65B00DB68B1 /* Tracking */ = {
@@ -2897,6 +2919,24 @@
 			path = WZCJLocHistoryModel;
 			sourceTree = "<group>";
 		};
+		618FDC581CB731A000DB68B1 /* TimerUploadTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				618FDC721CB73FD200DB68B1 /* TimerUploadTableViewController.h */,
+				618FDC731CB73FD200DB68B1 /* TimerUploadTableViewController.m */,
+			);
+			name = TimerUploadTableVC;
+			sourceTree = "<group>";
+		};
+		618FDC6B1CB733D600DB68B1 /* GlobalResource */ = {
+			isa = PBXGroup;
+			children = (
+				618FDC6F1CB73FC300DB68B1 /* GlobalResource.h */,
+				618FDC701CB73FC300DB68B1 /* GlobalResource.m */,
+			);
+			name = GlobalResource;
+			sourceTree = "<group>";
+		};
 		61EA18BC1CA3FCE6004C74C3 = {
 			isa = PBXGroup;
 			children = (
@@ -2970,6 +3010,7 @@
 		61EA193F1CA3FF71004C74C3 /* WQTongProject */ = {
 			isa = PBXGroup;
 			children = (
+				618FDC6B1CB733D600DB68B1 /* GlobalResource */,
 				618FDBFD1CB6312E00DB68B1 /* Yuntx_FullLib_SDK */,
 				610FD6951CA536E9009A7E7D /* ConnectGL */,
 				617DA9961CAB5EF90014269D /* Custom */,
@@ -3560,6 +3601,7 @@
 				617DAC961CAB5F560014269D /* FMResultSet.m in Sources */,
 				617DAD871CAB5F560014269D /* MultiVideoConfViewController.m in Sources */,
 				617DACB41CAB5F560014269D /* SDWebImageDecoder.m in Sources */,
+				618FDC801CB73FE700DB68B1 /* OldTrackingViewController.m in Sources */,
 				617DAC9F1CAB5F560014269D /* MWTapDetectingImageView.m in Sources */,
 				617DAD751CAB5F560014269D /* SearchModeViewController.m in Sources */,
 				617DA9AC1CAB5EF90014269D /* CommonTools.m in Sources */,
@@ -3574,6 +3616,7 @@
 				617DACAC1CAB5F560014269D /* PSTGridLayoutInfo.m in Sources */,
 				617DACB51CAB5F560014269D /* SDWebImageDownloader.m in Sources */,
 				617DACA91CAB5F560014269D /* PSTCollectionViewItemKey.m in Sources */,
+				618FDC7D1CB73FE700DB68B1 /* CheckRusultsViewController.m in Sources */,
 				617DA9AF1CAB5EF90014269D /* IMCommon.m in Sources */,
 				617DAD7A1CAB5F560014269D /* InterphoneViewController.m in Sources */,
 				610E1AB21CA65BF600174556 /* WQTong.xcdatamodeld in Sources */,
@@ -3614,6 +3657,7 @@
 				617DAC921CAB5F560014269D /* FMDatabase.m in Sources */,
 				617DAD681CAB5F560014269D /* DetailsViewController.m in Sources */,
 				617DACA11CAB5F560014269D /* MWZoomingScrollView.m in Sources */,
+				618FDC711CB73FC300DB68B1 /* GlobalResource.m in Sources */,
 				617DACA41CAB5F560014269D /* PSTCollectionView.m in Sources */,
 				617DA9AD1CAB5EF90014269D /* CustomEmojiView.m in Sources */,
 				617DAD3B1CAB5F560014269D /* SessionViewCell.m in Sources */,
@@ -3632,7 +3676,6 @@
 				617DA9B21CAB5EF90014269D /* Statement.m in Sources */,
 				617DAC991CAB5F560014269D /* MBProgressHUD.m in Sources */,
 				617DACD41CAB5F560014269D /* DeviceChatHelper.m in Sources */,
-				617DAE831CACF42F0014269D /* LSGJVC.m in Sources */,
 				617DAD811CAB5F560014269D /* DownloadViewController.m in Sources */,
 				617DA9B51CAB5EF90014269D /* UIResponder+Custom.m in Sources */,
 				617DACEE1CAB5F560014269D /* ChatViewImageCell.m in Sources */,
@@ -3654,6 +3697,7 @@
 				617DACB71CAB5F560014269D /* SDWebImageManager.m in Sources */,
 				617DAC9A1CAB5F560014269D /* MWCaptionView.m in Sources */,
 				610FD6981CA53751009A7E7D /* LaunchVC.m in Sources */,
+				618FDC741CB73FD200DB68B1 /* TimerUploadTableViewController.m in Sources */,
 				617DAC9B1CAB5F560014269D /* MWGridCell.m in Sources */,
 				617DADFE1CAB5F560014269D /* VideoView.m in Sources */,
 				617DAD861CAB5F560014269D /* MultiVideoConfNameViewController.m in Sources */,
@@ -3667,6 +3711,7 @@
 				617DAD701CAB5F560014269D /* GroupNoticeTableViewCell.m in Sources */,
 				617DAE861CACF43A0014269D /* KQXXView.m in Sources */,
 				617DAC941CAB5F560014269D /* FMDatabasePool.m in Sources */,
+				618FDC7E1CB73FE700DB68B1 /* DateCheckViewController.m in Sources */,
 				617DAE771CAB5F560014269D /* VoipIncomingViewController.m in Sources */,
 				617DACB91CAB5F560014269D /* UIButton+WebCache.m in Sources */,
 				618FDBE31CB5E65B00DB68B1 /* Tracking.m in Sources */,
@@ -3702,6 +3747,7 @@
 				617DACBA1CAB5F560014269D /* UIImage+GIF.m in Sources */,
 				617DAC9D1CAB5F560014269D /* MWPhoto.m in Sources */,
 				617DAD731CAB5F560014269D /* InviteJoinViewController.m in Sources */,
+				618FDC7F1CB73FE700DB68B1 /* DateDetailsViewController.m in Sources */,
 				617DA9351CAB5CB80014269D /* BBTableEmptyTipView.m in Sources */,
 				617DAC931CAB5F560014269D /* FMDatabaseAdditions.m in Sources */,
 				617DAD3C1CAB5F560014269D /* SessionViewController.m in Sources */,

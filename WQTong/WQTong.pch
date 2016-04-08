@@ -19,4 +19,6 @@
 #import <CoreData/CoreData.h>
 #import <MagicalRecord/MagicalRecord.h>
 
+#import "GlobalResource.h"
+
 #endif

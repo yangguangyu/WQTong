@@ -179,7 +179,7 @@
 
 - (void)initMapView {
     
-    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(15, 80, screenWidth-30, 330)];
+    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(15, 80, screenWidth-30, 360)];
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;//YES 为打开定位，NO为关闭定位
     [self.view addSubview:self.mapView];

@@ -170,11 +170,31 @@ static const CGFloat MJDuration = 1.0;
 - (void)initView {
     
     self.title = @"签到记录";
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"title_bar_back"] style:UIBarButtonItemStyleDone target:self action:@selector(returnClick)];
+    self.navigationItem.leftBarButtonItem = item;
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新"
-                                                                              style: UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(refreshTableView)];
+
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新"
+//                                                                              style: UIBarButtonItemStylePlain
+//                                                                             target:self
+//                                                                             action:@selector(refreshTableView)];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[IconFont imageWithIcon:[IconFont icon:@"fa_repeat" fromFont:fontAwesome] fontName:fontAwesome iconColor:UIRGBColor(0,101,229,1) iconSize:24.0f] style:UIBarButtonItemStyleDone target:self action:@selector(refreshTableView)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+
+}
+
+- (void)returnClick {
+    
+    if ([[self.navigationController viewControllers] count] ==1) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

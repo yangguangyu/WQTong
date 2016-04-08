@@ -2,7 +2,22 @@
 项目中的云通讯包由于太大没有导入。需要自行下载。
 
 ###首页
-![img](http://ww3.sinaimg.cn/mw690/78f9859ejw1f2h6936ybfj20ku112qbe.jpg)
+![img](http://ww3.sinaimg.cn/mw690/78f9859ejw1f2p3bdtucgj20hs0vktgf.jpg)
+
+###签到记录
+
+![img](http://ww2.sinaimg.cn/mw690/78f9859ejw1f2p3bhzu5dj20hs0vkwg3.jpg)
+
+###历史轨迹
+![img](http://ww4.sinaimg.cn/mw690/78f9859ejw1f2p3bh87yjj20hs0vkahw.jpg)
+
+###定时上传
+![img](http://ww1.sinaimg.cn/mw690/78f9859ejw1f2p3qgp7tzj20hs0vktaf.jpg)
+
+###通讯录
+![img](http://ww3.sinaimg.cn/mw690/78f9859ejw1f2p3bfq6jmj20hs0vkq48.jpg)
+
+![img](http://ww4.sinaimg.cn/mw690/78f9859ejw1f2p3bgdcoej20hs0vk40p.jpg)
 
 ###沟通
 ![img](http://ww1.sinaimg.cn/mw690/78f9859ejw1f2h6941hdkj20ku112abe.jpg)

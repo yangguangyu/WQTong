@@ -18,7 +18,7 @@
     
 }
 
--(void)initMapService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions {
+- (void)initMapService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions {
     
     [self configureAPIKey];//配置高德地图APIKey
     [self configureSQL];//配置数据库
