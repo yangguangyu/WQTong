@@ -21,6 +21,10 @@
 		610FD6A21CA53CBF009A7E7D /* AppDelegate+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 610FD6A11CA53CBF009A7E7D /* AppDelegate+Launch.m */; };
 		610FD6A51CA53E98009A7E7D /* AppDelegate+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 610FD6A41CA53E98009A7E7D /* AppDelegate+Map.m */; };
 		610FD6AB1CA54A16009A7E7D /* BBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610FD6AA1CA54A16009A7E7D /* BBTabBarController.m */; };
+		6111FA1E1CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA171CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.m */; };
+		6111FA1F1CB8A41300E61B67 /* WzcLocObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA191CB8A41300E61B67 /* WzcLocObjectModel.m */; };
+		6111FA201CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA1B1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m */; };
+		6111FA211CB8A41300E61B67 /* WzcLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA1D1CB8A41300E61B67 /* WzcLocationModel.m */; };
 		617DA9351CAB5CB80014269D /* BBTableEmptyTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DA9341CAB5CB80014269D /* BBTableEmptyTipView.m */; };
 		617DA9AC1CAB5EF90014269D /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DA9981CAB5EF90014269D /* CommonTools.m */; };
 		617DA9AD1CAB5EF90014269D /* CustomEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DA99A1CAB5EF90014269D /* CustomEmojiView.m */; };
@@ -578,8 +582,6 @@
 		618FDC401CB63CDD00DB68B1 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC3F1CB63CDD00DB68B1 /* UIButton+Block.m */; };
 		618FDC511CB6511900DB68B1 /* TimerUploadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC471CB6511900DB68B1 /* TimerUploadModel.m */; };
 		618FDC521CB6511900DB68B1 /* UserInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC4A1CB6511900DB68B1 /* UserInformationModel.m */; };
-		618FDC531CB6511900DB68B1 /* WzcLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC4D1CB6511900DB68B1 /* WzcLocationModel.m */; };
-		618FDC541CB6511900DB68B1 /* WzcLocObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC4F1CB6511900DB68B1 /* WzcLocObjectModel.m */; };
 		618FDC571CB6513000DB68B1 /* AddKQXXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC561CB6513000DB68B1 /* AddKQXXModel.m */; };
 		618FDC711CB73FC300DB68B1 /* GlobalResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC701CB73FC300DB68B1 /* GlobalResource.m */; };
 		618FDC741CB73FD200DB68B1 /* TimerUploadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FDC731CB73FD200DB68B1 /* TimerUploadTableViewController.m */; };
@@ -634,6 +636,14 @@
 		610FD6A41CA53E98009A7E7D /* AppDelegate+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+Map.m"; path = "AppDelegate/AppDelegate+Map.m"; sourceTree = "<group>"; };
 		610FD6A91CA54A16009A7E7D /* BBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBTabBarController.h; path = common/comClass/BBTabBarController.h; sourceTree = "<group>"; };
 		610FD6AA1CA54A16009A7E7D /* BBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBTabBarController.m; path = common/comClass/BBTabBarController.m; sourceTree = "<group>"; };
+		6111FA161CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WzcLocObjectModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6111FA171CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WzcLocObjectModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6111FA181CB8A41300E61B67 /* WzcLocObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WzcLocObjectModel.h; sourceTree = "<group>"; };
+		6111FA191CB8A41300E61B67 /* WzcLocObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WzcLocObjectModel.m; sourceTree = "<group>"; };
+		6111FA1A1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WzcLocationModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6111FA1B1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WzcLocationModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6111FA1C1CB8A41300E61B67 /* WzcLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WzcLocationModel.h; sourceTree = "<group>"; };
+		6111FA1D1CB8A41300E61B67 /* WzcLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WzcLocationModel.m; sourceTree = "<group>"; };
 		614810351CA61E53002763DD /* CommonMarco_Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMarco_Url.h; path = common/comInclude/CommonMarco_Url.h; sourceTree = "<group>"; };
 		617DA9331CAB5CB80014269D /* BBTableEmptyTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTableEmptyTipView.h; sourceTree = "<group>"; };
 		617DA9341CAB5CB80014269D /* BBTableEmptyTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTableEmptyTipView.m; sourceTree = "<group>"; };
@@ -1399,10 +1409,6 @@
 		618FDC471CB6511900DB68B1 /* TimerUploadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerUploadModel.m; sourceTree = "<group>"; };
 		618FDC491CB6511900DB68B1 /* UserInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformationModel.h; sourceTree = "<group>"; };
 		618FDC4A1CB6511900DB68B1 /* UserInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformationModel.m; sourceTree = "<group>"; };
-		618FDC4C1CB6511900DB68B1 /* WzcLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WzcLocationModel.h; sourceTree = "<group>"; };
-		618FDC4D1CB6511900DB68B1 /* WzcLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WzcLocationModel.m; sourceTree = "<group>"; };
-		618FDC4E1CB6511900DB68B1 /* WzcLocObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WzcLocObjectModel.h; sourceTree = "<group>"; };
-		618FDC4F1CB6511900DB68B1 /* WzcLocObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WzcLocObjectModel.m; sourceTree = "<group>"; };
 		618FDC551CB6513000DB68B1 /* AddKQXXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddKQXXModel.h; sourceTree = "<group>"; };
 		618FDC561CB6513000DB68B1 /* AddKQXXModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddKQXXModel.m; sourceTree = "<group>"; };
 		618FDC6F1CB73FC300DB68B1 /* GlobalResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalResource.h; path = GlobalResource/GlobalResource.h; sourceTree = "<group>"; };
@@ -2911,10 +2917,14 @@
 		618FDC4B1CB6511900DB68B1 /* WZCJLocHistoryModel */ = {
 			isa = PBXGroup;
 			children = (
-				618FDC4E1CB6511900DB68B1 /* WzcLocObjectModel.h */,
-				618FDC4F1CB6511900DB68B1 /* WzcLocObjectModel.m */,
-				618FDC4C1CB6511900DB68B1 /* WzcLocationModel.h */,
-				618FDC4D1CB6511900DB68B1 /* WzcLocationModel.m */,
+				6111FA161CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.h */,
+				6111FA171CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.m */,
+				6111FA181CB8A41300E61B67 /* WzcLocObjectModel.h */,
+				6111FA191CB8A41300E61B67 /* WzcLocObjectModel.m */,
+				6111FA1A1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.h */,
+				6111FA1B1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m */,
+				6111FA1C1CB8A41300E61B67 /* WzcLocationModel.h */,
+				6111FA1D1CB8A41300E61B67 /* WzcLocationModel.m */,
 			);
 			path = WZCJLocHistoryModel;
 			sourceTree = "<group>";
@@ -3621,6 +3631,7 @@
 				617DAD7A1CAB5F560014269D /* InterphoneViewController.m in Sources */,
 				610E1AB21CA65BF600174556 /* WQTong.xcdatamodeld in Sources */,
 				618FDC571CB6513000DB68B1 /* AddKQXXModel.m in Sources */,
+				6111FA1E1CB8A41300E61B67 /* WzcLocObjectModel+CoreDataProperties.m in Sources */,
 				617DACBE1CAB5F560014269D /* UIImageView+WebCache.m in Sources */,
 				617DAD7D1CAB5F560014269D /* MainViewController.m in Sources */,
 				617DACD61CAB5F560014269D /* DeviceDelegateHelper+Meeting.m in Sources */,
@@ -3632,6 +3643,7 @@
 				610FD6A51CA53E98009A7E7D /* AppDelegate+Map.m in Sources */,
 				618FDBAC1CB50E8300DB68B1 /* LaunchRequestManager.m in Sources */,
 				617DACB61CAB5F560014269D /* SDWebImageDownloaderOperation.m in Sources */,
+				6111FA1F1CB8A41300E61B67 /* WzcLocObjectModel.m in Sources */,
 				617DAD6C1CAB5F560014269D /* GroupListViewCell.m in Sources */,
 				617DACA81CAB5F560014269D /* PSTCollectionViewFlowLayout.m in Sources */,
 				617DACEC1CAB5F560014269D /* ChatViewCell.m in Sources */,
@@ -3684,6 +3696,7 @@
 				617DACBF1CAB5F560014269D /* UIView+WebCacheOperation.m in Sources */,
 				617DAD761CAB5F560014269D /* SelectListViewCell.m in Sources */,
 				610E1AAD1CA64DF300174556 /* Reachability.m in Sources */,
+				6111FA211CB8A41300E61B67 /* WzcLocationModel.m in Sources */,
 				610FD6AB1CA54A16009A7E7D /* BBTabBarController.m in Sources */,
 				617DAD661CAB5F560014269D /* CreateGroupViewController.m in Sources */,
 				617DAD5E1CAB5F560014269D /* ContactListViewCell.m in Sources */,
@@ -3696,6 +3709,7 @@
 				617DACB31CAB5F560014269D /* SDWebImageCompat.m in Sources */,
 				617DACB71CAB5F560014269D /* SDWebImageManager.m in Sources */,
 				617DAC9A1CAB5F560014269D /* MWCaptionView.m in Sources */,
+				6111FA201CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m in Sources */,
 				610FD6981CA53751009A7E7D /* LaunchVC.m in Sources */,
 				618FDC741CB73FD200DB68B1 /* TimerUploadTableViewController.m in Sources */,
 				617DAC9B1CAB5F560014269D /* MWGridCell.m in Sources */,
@@ -3706,7 +3720,6 @@
 				617DACD11CAB5F560014269D /* AddressBook.m in Sources */,
 				618FDBDF1CB5E65B00DB68B1 /* EndAnnotation.m in Sources */,
 				617DAD671CAB5F560014269D /* DetailsListViewCell.m in Sources */,
-				618FDC541CB6511900DB68B1 /* WzcLocObjectModel.m in Sources */,
 				617DAD771CAB5F560014269D /* IntercomingViewController.m in Sources */,
 				617DAD701CAB5F560014269D /* GroupNoticeTableViewCell.m in Sources */,
 				617DAE861CACF43A0014269D /* KQXXView.m in Sources */,
@@ -3753,7 +3766,6 @@
 				617DAD3C1CAB5F560014269D /* SessionViewController.m in Sources */,
 				617DACEB1CAB5F560014269D /* ChatViewCallTextCell.m in Sources */,
 				618FDBE51CB5E65B00DB68B1 /* UUDatePicker_DateModel.m in Sources */,
-				618FDC531CB6511900DB68B1 /* WzcLocationModel.m in Sources */,
 				617DAD5B1CAB5F560014269D /* RoomMemberViewController.m in Sources */,
 				617DACCF1CAB5F560014269D /* SRRefreshView.m in Sources */,
 			);

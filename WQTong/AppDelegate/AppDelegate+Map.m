@@ -26,13 +26,15 @@
     [self mapLocationNotification];//添加定位监听
 }
 
-//创建MagicalRecord外勤通数据库
+#pragma mark - 创建MagicalRecord外勤通数据库
+
 - (void)configureSQL {
     
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"WQTong.sqlite"];
 }
 
-//添加定时上传位置监听
+#pragma mark - 添加定时上传位置监听
+
 - (void)mapLocationNotification {
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -53,6 +55,8 @@
 
 - (void)setupLocation:(NSNotification *)notification {
     NSLog(@"定时器开启定位");
+    //初始化地图管理和搜索对象-启动定时器-逆编码地理位置-上传信息-保存下班信息
+   
     
     self.amaplocationManager = [[AMapLocationManager alloc] init]; //初始化持续定位
     self.amaplocationManager.delegate = self;
@@ -97,12 +101,13 @@
     regeo.radius = 10000;
     
     NSLog(@"regeo.location is %@",regeo.location);
-    if (regeo.location.longitude>0 &&regeo.location.latitude>0) {
-        
-        //添加保存坐标
-        [self.timeLocationsArray addObject:regeo.location];
-    }
-    
+//    if (regeo.location.longitude>0 &&regeo.location.latitude>0) {
+//    
+//        //添加保存坐标
+//        [self.timeLocationsArray addObject:regeo.location];
+//    }
+    //添加保存坐标
+    [self.timeLocationsArray addObject:regeo.location];
     //发起逆地理编码
     [self.search AMapReGoecodeSearch:regeo];
     
@@ -126,11 +131,14 @@
 
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location {
     
+    //每秒更新位置
     NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     self.searchLatitude  = location.coordinate.latitude;
     self.searchLongitude = location.coordinate.longitude;
     self.tempLatitude  =  [NSNumber numberWithDouble:location.coordinate.latitude];
     self.tempLongitude =  [NSNumber numberWithDouble:location.coordinate.longitude];
+    
+    
 }
 
 #pragma mark - 上传信息:用户名 部门 经度 纬度 位置 时间
@@ -223,31 +231,35 @@
     newRun.bumen = self.bumen;
     newRun.wz = self.wz;
     
-    newRun.timestamp  =  [self.datePicker date];
-
-    newRun.timestring =  [[CommonFunction sharedInstance]timeStringRecord];
+    newRun.timestamp  = [self.datePicker date];
+    newRun.timestring = [[CommonFunction sharedInstance]timeStringRecord];
     
     NSMutableArray *locationArray = [NSMutableArray array];
     
+    NSLog(@"self.timeLocationArray is %@",self.timeLocationsArray);
+    
     if (self.timeLocationsArray != nil && ![self.timeLocationsArray isKindOfClass:[NSNull class]] && self.timeLocationsArray.count != 0)
     {
-        for (CLLocation *location in self.timeLocationsArray) {
+        for (AMapGeoPoint *location in self.timeLocationsArray) {
             
             WzcLocationModel *locationObject = [WzcLocationModel MR_createEntity];
             locationObject.timestamp = [self.datePicker date];
-            locationObject.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
-            locationObject.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
+            
+           // NSLog(@"location.coordinate.latitude is %lf",location.coordinate.latitude);
+            
+            locationObject.latitude = [NSNumber numberWithDouble:location.latitude];
+            locationObject.longitude = [NSNumber numberWithDouble:location.longitude];
             [locationArray addObject:locationObject];
             
-            //            NSLog(@"latitudeapp is %@",locationObject.latitude);
-            //            NSLog(@"longgggeapp is %@",locationObject.longitude);
+            NSLog(@"latitudeapp is %@",locationObject.latitude);
+            NSLog(@"longgggeapp is %@",locationObject.longitude);
         }
         newRun.locations = [NSOrderedSet orderedSetWithArray:locationArray];
         [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
         
     }
 
-    NSLog(@"app newRun is %@",newRun);
+    NSLog(@"app newRun is %@",newRun.locations);
 }
 
 #pragma mark - 设置当前时间

@@ -179,7 +179,7 @@ static float const mapPadding = 1.1f;
                                                                              action:@selector(navRightBarDateRunAction)];
     NSDate *now = [NSDate date];
     UUDatePicker *startDatePicker
-    = [[UUDatePicker alloc]initWithframe:CGRectMake(0, 0, screenWidth, 200)
+    = [[UUDatePicker alloc]initWithframe:CGRectMake(0, 0,320, 200)
                              PickerStyle: UUDateStyle_YearMonthDayHourMinute
                              didSelected:^(NSString *year,
                                            NSString *month,
@@ -202,6 +202,7 @@ static float const mapPadding = 1.1f;
 - (void)checkbuttonAction:(UIButton *)button {
     
     self.runArray = [WzcLocObjectModel MR_findAllSortedBy:@"timestamp" ascending:NO];
+    NSLog(@"self.runArray is %@",self.runArray);
     
     if (self.runArray != nil && ![self.runArray isKindOfClass:[NSNull class]] && self.runArray.count != 0)
     {
@@ -213,7 +214,9 @@ static float const mapPadding = 1.1f;
             fetchRequest.fetchBatchSize = 20;
             NSArray *listData = [WzcLocObjectModel MR_executeFetchRequest:fetchRequest];
             self.findRunObject = [listData lastObject];
-                
+            
+            NSLog(@"self.findFunObject is %@",self.findRunObject);
+            
             [GlobalResource sharedInstance].resultRunObject = self.findRunObject;
             CheckRusultsViewController * check = [[CheckRusultsViewController alloc]init];
             [self presentViewController: [[UINavigationController alloc] initWithRootViewController:check] animated:YES completion:nil];

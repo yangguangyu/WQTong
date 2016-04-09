@@ -2,7 +2,7 @@
 //  WzcLocationModel.m
 //  WQTong
 //
-//  Created by WuYongmin on 16/4/7.
+//  Created by WuYongmin on 16/4/9.
 //  Copyright © 2016年 cnbin. All rights reserved.
 //
 
@@ -11,9 +11,6 @@
 
 @implementation WzcLocationModel
 
-@dynamic latitude;
-@dynamic longitude;
-@dynamic timestamp;
-@dynamic wzcLocObject;
+// Insert code here to add functionality to your managed object subclass
 
 @end

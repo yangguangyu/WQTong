@@ -43,7 +43,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="wzcLocObject" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="WzcLocObjectModel" inverseName="locations" inverseEntity="WzcLocObjectModel" syncable="YES"/>
+        <relationship name="wzcLocObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WzcLocObjectModel" inverseName="locations" inverseEntity="WzcLocObjectModel" syncable="YES"/>
     </entity>
     <entity name="WzcLocObjectModel" representedClassName="WzcLocObjectModel" syncable="YES">
         <attribute name="bumen" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,13 +51,13 @@
         <attribute name="timestring" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wz" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="locations" optional="YES" toMany="YES" deletionRule="No Action" ordered="YES" destinationEntity="WzcLocationModel" inverseName="wzcLocObject" inverseEntity="WzcLocationModel" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="WzcLocationModel" inverseName="wzcLocObject" inverseEntity="WzcLocationModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="AddKQXXModel" positionX="-36" positionY="126" width="128" height="195"/>
         <element name="TimerUploadModel" positionX="-27" positionY="153" width="128" height="150"/>
         <element name="UserInformationModel" positionX="-36" positionY="9" width="128" height="285"/>
-        <element name="WzcLocObjectModel" positionX="-9" positionY="162" width="128" height="135"/>
-        <element name="WzcLocationModel" positionX="9" positionY="171" width="128" height="105"/>
+        <element name="WzcLocationModel" positionX="187" positionY="228" width="128" height="103"/>
+        <element name="WzcLocObjectModel" positionX="511" positionY="180" width="128" height="133"/>
     </elements>
 </model>

@@ -30,7 +30,7 @@ __strong static CommonFunction *share = nil;
     return destDateString;
 }
 
-//时间拼成数字形式：20151116170511 2015-11-16 17:05:11
+//时间拼成数字形式：201504061705 2015-04-06 17:05
 - (NSString *)timeStringRecord {
     
     NSDate *dateNow;
@@ -41,15 +41,61 @@ __strong static CommonFunction *share = nil;
     comps = [calendar components:unitFlags fromDate:dateNow];
     
     NSString * yearString   = [NSString stringWithFormat:@"%ld",(long)[comps year]];
-    NSString * monthString  = [NSString stringWithFormat:@"%ld",(long)[comps month]];
-    NSString * dayString    = [NSString stringWithFormat:@"%ld",(long)[comps day]];
-    NSString * hourString   = [NSString stringWithFormat:@"%ld",(long)[comps hour]];
-    NSString * minuteString = [NSString stringWithFormat:@"%ld",(long)[comps minute]];
-    NSString * secondString = [NSString stringWithFormat:@"%ld",(long)[comps second]];
+    
+    NSString * monthString;
+    if ((long)[comps month]<9) {
+        
+        monthString = [NSString stringWithFormat:@"0%ld",(long)[comps month]];
+        
+    }
+    else {
+        
+        monthString = [NSString stringWithFormat:@"%ld",(long)[comps month]];
+        
+    }
+
+     NSString * dayString;
+    if ((long)[comps month]<9) {
+        
+        dayString = [NSString stringWithFormat:@"0%ld",(long)[comps day]];
+        
+    }
+    else {
+        
+        dayString = [NSString stringWithFormat:@"%ld",(long)[comps day]];
+        
+    }
+    
+    NSString * hourString;
+    if ((long)[comps hour]<9) {
+        
+        hourString = [NSString stringWithFormat:@"0%ld",(long)[comps hour]];
+        
+    }
+    else {
+        
+        hourString = [NSString stringWithFormat:@"%ld",(long)[comps hour]];
+
+    }
+    
+    NSString * minuteString;
+    if ((long)[comps minute]<9) {
+        
+        minuteString = [NSString stringWithFormat:@"0%ld",(long)[comps minute]];
+        
+    }
+    else {
+        
+        minuteString = [NSString stringWithFormat:@"%ld",(long)[comps minute]];
+        
+    }
+    
+//    NSString * secondString = [NSString stringWithFormat:@"%ld",(long)[comps second]];
     
     //时间拼成数字形式：20151116170511 2015-11-16 17:05:11
-    NSString * timeNumberString = [[[[[yearString stringByAppendingString:monthString]stringByAppendingString: dayString]stringByAppendingString: hourString]stringByAppendingString:minuteString]stringByAppendingString: secondString];
+//    NSString * timeNumberString = [[[[[yearString stringByAppendingString:monthString]stringByAppendingString: dayString]stringByAppendingString: hourString]stringByAppendingString:minuteString]stringByAppendingString: secondString];
     
+    NSString * timeNumberString = [[[[yearString stringByAppendingString:monthString]stringByAppendingString: dayString]stringByAppendingString: hourString]stringByAppendingString:minuteString];
     return timeNumberString ;
 }
 

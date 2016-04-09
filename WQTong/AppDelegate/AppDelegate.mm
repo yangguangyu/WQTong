@@ -24,7 +24,7 @@
     
     //初始化高德地图服务
     [self initMapService:application WithOption:launchOptions];
-   // [self initMapParam];
+    [self initMapParam];
 
     return YES;
 }

@@ -15,6 +15,6 @@
 
 @interface AppDelegate (Map)
 
--(void)initMapService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions;
+- (void)initMapService:(UIApplication *)application WithOption:(NSDictionary *)launchOptions;
 
 @end

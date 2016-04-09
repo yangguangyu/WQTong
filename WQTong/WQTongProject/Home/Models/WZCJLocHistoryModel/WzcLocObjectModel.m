@@ -2,19 +2,15 @@
 //  WzcLocObjectModel.m
 //  WQTong
 //
-//  Created by WuYongmin on 16/4/7.
+//  Created by WuYongmin on 16/4/9.
 //  Copyright © 2016年 cnbin. All rights reserved.
 //
 
 #import "WzcLocObjectModel.h"
+#import "WzcLocationModel.h"
 
 @implementation WzcLocObjectModel
 
-@dynamic bumen;
-@dynamic timestamp;
-@dynamic timestring;
-@dynamic userName;
-@dynamic wz;
-@dynamic locations;
+// Insert code here to add functionality to your managed object subclass
 
 @end
