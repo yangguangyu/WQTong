@@ -87,7 +87,6 @@
     
     if ([subViewIndex isEqualToString:@"subView5"]) {
         
-        NSLog(@"5");
         //定时上传
         [self performSegueWithIdentifier:@"TimerUploadVCSegue" sender:self];
     }

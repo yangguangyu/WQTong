@@ -41,8 +41,8 @@
     [self mapViewLocation];
 
     //self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
-    NSLog(@"self.mapView.centerCoordinate is %f",self.mapView.centerCoordinate.latitude);
-    NSLog(@"self.mapView.centerCoordinate is %f",self.mapView.centerCoordinate.longitude);
+//    NSLog(@"self.mapView.centerCoordinate is %f",self.mapView.centerCoordinate.latitude);
+//    NSLog(@"self.mapView.centerCoordinate is %f",self.mapView.centerCoordinate.longitude);
     
 }
 
@@ -95,15 +95,15 @@
         
         if (buttonIndex == 0) {
             
-            NSLog(@"结束定位");
+//            NSLog(@"结束定位");
             [KQDKRequestManager sharedInstance].lx = @"下班";
             [[NSNotificationCenter defaultCenter] postNotificationName:@"stopLocationNotification" object:self userInfo:nil];
-            [self.view makeToast:@"打卡成功" duration:1.0 position:@"center"];
+            [self.view makeToast:@"打卡成功" duration:3.0 position:@"center"];
 
             
         }else if (buttonIndex == 1)
         {
-            NSLog(@"开始定位");
+//            NSLog(@"开始定位");
             [KQDKRequestManager sharedInstance].lx = @"上班";
             [[NSNotificationCenter defaultCenter] postNotificationName:@"setupLocationNotification" object:self userInfo:nil];
            
@@ -123,16 +123,16 @@
         
         if (buttonIndex == 0) {
             
-            NSLog(@"直接上传");
+//            NSLog(@"直接上传");
             //上传数据
             [[KQDKRequestManager sharedInstance]setupRequest];
             [self saveAddKQXXDataAction];
-            [self.view makeToast:@"打卡成功" duration:1.0 position:@"center"];
+            [self.view makeToast:@"打卡成功" duration:3.0 position:@"center"];
              
         }
         else if (buttonIndex == 1) {
             
-            NSLog(@"打开相机");
+//            NSLog(@"打开相机");
             
             UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
             
@@ -164,8 +164,15 @@
     //上传图片
     [[KQDKRequestManager sharedInstance] setupFJload];
     
-    //上传定位数据
-    [[KQDKRequestManager sharedInstance] setupRequest];
+    if ([CommonFunction IsNetworkValidate]) {
+        //上传定位数据
+        [[KQDKRequestManager sharedInstance] setupRequest];
+        
+    } else {
+        
+        [self.view makeToast:@"请检查网络状态" duration:1.0 position:@"center"];
+
+    }
     
     //保存定位数据
     [self saveAddKQXXDataAction];
@@ -174,6 +181,7 @@
 #pragma mark - 取消选择图片delegate
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
@@ -213,7 +221,7 @@
         
         if (location)
         {
-            NSLog(@"location");
+//            NSLog(@"location");
             MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
             [annotation setCoordinate:location.coordinate];
             
@@ -241,8 +249,8 @@
             [KQDKRequestManager sharedInstance].latitudeY  = location.coordinate.latitude;
          
             
-             NSLog(@"poi is %@",[NSString stringWithFormat:@"%@", regeocode.formattedAddress]);
-             NSLog(@"wz is %@",[NSString stringWithFormat:@"%@", regeocode.formattedAddress]);
+//             NSLog(@"poi is %@",[NSString stringWithFormat:@"%@", regeocode.formattedAddress]);
+//             NSLog(@"wz is %@",[NSString stringWithFormat:@"%@", regeocode.formattedAddress]);
             
         }
         else {

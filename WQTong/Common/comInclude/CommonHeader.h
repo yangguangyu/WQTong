@@ -16,6 +16,7 @@
 #import "NSString+URLEncoding.h"
 #import <IconFont.h>
 #import <ZXingObjC/ZXingObjC.h>
+#import "Reachability.h"
 
 //其他
 #import "CommonMarco_UIInfo.h"

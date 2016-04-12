@@ -54,10 +54,9 @@
 #pragma mark - 处理开启定位通知
 
 - (void)setupLocation:(NSNotification *)notification {
-    NSLog(@"定时器开启定位");
+//    NSLog(@"定时器开启定位");
     //初始化地图管理和搜索对象-启动定时器-逆编码地理位置-上传信息-保存下班信息
    
-    
     self.amaplocationManager = [[AMapLocationManager alloc] init]; //初始化持续定位
     self.amaplocationManager.delegate = self;
     [self.amaplocationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters]; //精确度100米
@@ -75,7 +74,7 @@
 #pragma mark - 处理停止定位通知
 
 - (void)stopLocation:(NSNotification *)notification {
-    NSLog(@"stop定位");
+//    NSLog(@"stop定位");
     [self.amaplocationManager stopUpdatingLocation];
     
     [self.timer invalidate];
@@ -93,14 +92,14 @@
     
     AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
     
-    NSLog(@"self.searchLatitude is %f",self.searchLatitude);
-    NSLog(@"self.searchLongitude is %f",self.searchLongitude);
+//    NSLog(@"self.searchLatitude is %f",self.searchLatitude);
+//    NSLog(@"self.searchLongitude is %f",self.searchLongitude);
     
     regeo.location = [AMapGeoPoint locationWithLatitude:self.searchLatitude longitude:self.searchLongitude];
     regeo.requireExtension = YES;
     regeo.radius = 10000;
     
-    NSLog(@"regeo.location is %@",regeo.location);
+//    NSLog(@"regeo.location is %@",regeo.location);
 //    if (regeo.location.longitude>0 &&regeo.location.latitude>0) {
 //    
 //        //添加保存坐标
@@ -108,8 +107,16 @@
 //    }
     //添加保存坐标
     [self.timeLocationsArray addObject:regeo.location];
-    //发起逆地理编码
-    [self.search AMapReGoecodeSearch:regeo];
+    
+      if ([CommonFunction IsNetworkValidate]) {
+          
+            //发起逆地理编码
+            [self.search AMapReGoecodeSearch:regeo];
+      }
+      else {
+          
+            [self.window makeToast:@"请检查网络状态" duration:1.0 position:@"center"];
+      }
     
 }
 
@@ -121,7 +128,7 @@
     if (response.regeocode != nil)
     {
         self.wz = response.regeocode.formattedAddress;
-        NSLog(@"self.wz is %@",self.wz);
+//        NSLog(@"self.wz is %@",self.wz);
     }
     
     [wAppself uploadRecordLocation];
@@ -132,7 +139,7 @@
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location {
     
     //每秒更新位置
-    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
+//    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     self.searchLatitude  = location.coordinate.latitude;
     self.searchLongitude = location.coordinate.longitude;
     self.tempLatitude  =  [NSNumber numberWithDouble:location.coordinate.latitude];
@@ -198,12 +205,12 @@
                                                       error:&error];
     if (data) {
         
-        NSLog(@"定时连接成功");
+//        NSLog(@"定时连接成功");
         self.isUploadSuccess = YES;
         
     }else {
         
-        NSLog(@"定时连接失败");
+//        NSLog(@"定时连接失败");
         self.isUploadSuccess = NO;
     }
     
@@ -236,7 +243,7 @@
     
     NSMutableArray *locationArray = [NSMutableArray array];
     
-    NSLog(@"self.timeLocationArray is %@",self.timeLocationsArray);
+//    NSLog(@"self.timeLocationArray is %@",self.timeLocationsArray);
     
     if (self.timeLocationsArray != nil && ![self.timeLocationsArray isKindOfClass:[NSNull class]] && self.timeLocationsArray.count != 0)
     {
@@ -251,15 +258,15 @@
             locationObject.longitude = [NSNumber numberWithDouble:location.longitude];
             [locationArray addObject:locationObject];
             
-            NSLog(@"latitudeapp is %@",locationObject.latitude);
-            NSLog(@"longgggeapp is %@",locationObject.longitude);
+//            NSLog(@"latitudeapp is %@",locationObject.latitude);
+//            NSLog(@"longgggeapp is %@",locationObject.longitude);
         }
         newRun.locations = [NSOrderedSet orderedSetWithArray:locationArray];
         [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
         
     }
 
-    NSLog(@"app newRun is %@",newRun.locations);
+//    NSLog(@"app newRun is %@",newRun.locations);
 }
 
 #pragma mark - 设置当前时间

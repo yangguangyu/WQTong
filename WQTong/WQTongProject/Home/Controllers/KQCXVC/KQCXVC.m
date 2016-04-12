@@ -111,10 +111,10 @@ static const CGFloat MJDuration = 1.0;
                                                       error:&error];
     if (data) {
         
-        NSLog(@"连接成功");
+//        NSLog(@"连接成功");
         addKQXXModel.isAddKQXXSuccess = @YES;
     }else {
-        NSLog(@"连接失败");
+//        NSLog(@"连接失败");
         addKQXXModel.isAddKQXXSuccess = @NO;
     }
     

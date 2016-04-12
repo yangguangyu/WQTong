@@ -12,33 +12,33 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,MAMapViewDelegate,AMapSearchDelegate,AMapLocationManagerDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 
 //AppDelegate+RLYunService属性
-@property (strong, nonatomic) NSString *callid;//容联
+@property (nonatomic, strong) NSString *callid;//容联
 
 
 //AppDelegate+Map属性
-@property (strong, nonatomic) AMapLocationManager *amaplocationManager;//高德地图定位管理对象
-@property (strong, nonatomic) AMapSearchAPI *search;//高德地图搜索对象
-@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic, strong) AMapLocationManager *amaplocationManager;//高德地图定位管理对象
+@property (nonatomic, strong) AMapSearchAPI *search;//高德地图搜索对象
+@property (nonatomic, strong) NSTimer *timer;
 
-@property (strong, nonatomic) NSMutableArray *timeLocationsArray; //保存定时上传的经纬度到数组
-@property (strong, nonatomic) UIDatePicker *datePicker;
-@property (assign, nonatomic) BOOL isNetworkConnnect;
+@property (nonatomic, strong) NSMutableArray *timeLocationsArray; //保存定时上传的经纬度到数组
+@property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, assign) BOOL isNetworkConnnect;
 
-@property (strong, nonatomic) NSNumber *tempLatitude; //定时上传的经纬度,数字类型用于后面历史轨迹查询
-@property (strong, nonatomic) NSNumber *tempLongitude;
+@property (nonatomic, strong) NSNumber *tempLatitude; //定时上传的经纬度,数字类型用于后面历史轨迹查询
+@property (nonatomic, strong) NSNumber *tempLongitude;
 
-@property (assign, nonatomic) CGFloat searchLatitude; //定时上传的经纬度
-@property (assign, nonatomic) CGFloat searchLongitude;
+@property (nonatomic, assign) CGFloat searchLatitude; //定时上传的经纬度
+@property (nonatomic, assign) CGFloat searchLongitude;
 
-@property (strong, nonatomic) NSString *userName;//用户名
-@property (strong, nonatomic) NSString *bumen;//部门
-@property (strong, nonatomic) NSString *wz;//位置
+@property (nonatomic, strong) NSString *userName;//用户名
+@property (nonatomic, strong) NSString *bumen;//部门
+@property (nonatomic, strong) NSString *wz;//位置
 
-@property (strong, nonatomic) NSArray *userInfoArray;
-@property (assign, nonatomic) Boolean isUploadSuccess;
+@property (nonatomic, strong) NSArray *userInfoArray;
+@property (nonatomic, assign) Boolean isUploadSuccess;
 
 @end
 

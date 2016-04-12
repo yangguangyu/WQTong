@@ -45,7 +45,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
-    NSLog(@"%@",[error localizedDescription]);
+//    NSLog(@"%@",[error localizedDescription]);
 }
 
 #pragma mark 接受到响应
@@ -63,7 +63,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection*) connection {
     
-    NSLog(@"请求完成...");
+//    NSLog(@"请求完成...");
     
     NSString *receiveString = [[NSString alloc] initWithData:self.receiveData encoding:NSUTF8StringEncoding];
     NSString *str =@"<?xml version=\"1.0\" encoding=\"utf-8\"?>""<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">""<soap:Body>""<LoginResponse xmlns=\"http://tempuri.org/\">""<LoginResult>";
@@ -71,7 +71,7 @@
     NSString *strhtml =[receiveString stringByReplacingOccurrencesOfString:str withString:@""];
     strhtml = [strhtml stringByReplacingOccurrencesOfString:@"</LoginResult>""</LoginResponse>""</soap:Body>""</soap:Envelope>" withString:@""];
     
-    NSLog(@"string is %@", strhtml);
+//    NSLog(@"string is %@", strhtml);
     
     NSError *error;
     NSData *data =[ strhtml dataUsingEncoding:NSUTF8StringEncoding];
@@ -81,7 +81,7 @@
     {
         
         NSDictionary * userDict = [self.jsonArray objectAtIndex:0];
-        NSLog(@"obj is %@",[self.jsonArray objectAtIndex:0]);
+//        NSLog(@"obj is %@",[self.jsonArray objectAtIndex:0]);
         
         UserInformationModel * userInformationObject = [UserInformationModel MR_createEntity];
         userInformationObject.idNumber  =  [userDict objectForKey:@"ID"];

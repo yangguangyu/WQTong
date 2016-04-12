@@ -2,7 +2,7 @@
 //  KQDKRequestManager.m
 //  WQTong
 //
-//  Created by WuYongmin on 16/3/31.
+//  Created by ChenBinbin on 16/3/31.
 //  Copyright © 2016年 cnbin. All rights reserved.
 //
 
@@ -119,14 +119,14 @@ __strong static KQDKRequestManager *share = nil;
         self.bumen = userInformationModel.department;
     }
     
-    NSLog(@"name is %@",self.username);
-    NSLog(@"bumen is %@",self.bumen);
-    NSLog(@"poi is %@",self.poi);
-    NSLog(@"wz is %@",self.wz);
-    NSLog(@"x is %lf",self.longitudeX);
-    NSLog(@"y is %lf",self.latitudeY);
-    NSLog(@"lx is %@",self.lx);
-    NSLog(@"tp is %@",self.tp);
+//    NSLog(@"name is %@",self.username);
+//    NSLog(@"bumen is %@",self.bumen);
+//    NSLog(@"poi is %@",self.poi);
+//    NSLog(@"wz is %@",self.wz);
+//    NSLog(@"x is %lf",self.longitudeX);
+//    NSLog(@"y is %lf",self.latitudeY);
+//    NSLog(@"lx is %@",self.lx);
+//    NSLog(@"tp is %@",self.tp);
     
     if (self.poi == nil || [self.poi isKindOfClass:[NSNull class]]) {
         self.poi = @" ";
@@ -183,11 +183,11 @@ __strong static KQDKRequestManager *share = nil;
                                                       error:&error];
     if (data) {
         
-        NSLog(@"连接成功");
+//        NSLog(@"连接成功");
       
            self.isAddKQXXSuccess = YES;
     }else {
-        NSLog(@"连接失败");
+//        NSLog(@"连接失败");
             self.isAddKQXXSuccess = NO;
     }
 }

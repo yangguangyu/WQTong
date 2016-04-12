@@ -2,7 +2,7 @@
 //  KQDKRequestManager.h
 //  WQTong
 //
-//  Created by WuYongmin on 16/3/31.
+//  Created by ChenBinbin on 16/3/31.
 //  Copyright © 2016年 cnbin. All rights reserved.
 //
 

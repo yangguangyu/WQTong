@@ -85,12 +85,18 @@
 
 
 - (void)initWebUserData {
-    
-    //加载网络用户数据
-    LaunchRequestManager *requestHelper =[[LaunchRequestManager alloc]init];
-    requestHelper.userName = _nameTextField;
-    requestHelper.passWord = _passwordTextField;
-    [requestHelper setUpRequest];
+    if ([CommonFunction IsNetworkValidate]) {
+        
+        //加载网络用户数据
+        LaunchRequestManager *requestHelper =[[LaunchRequestManager alloc]init];
+        requestHelper.userName = _nameTextField;
+        requestHelper.passWord = _passwordTextField;
+        [requestHelper setUpRequest];
+        
+    }
+    else {
+        [self.view makeToast:@"请检查网络状态" duration:1.0 position:@"center"];
+    }
 }
 
 #pragma mark - 加载成功

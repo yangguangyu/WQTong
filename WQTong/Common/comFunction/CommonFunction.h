@@ -18,4 +18,7 @@
 //时间拼成数字形式：20151116170511 2015-11-16 17:05:11
 - (NSString *)timeStringRecord;
 
+//判断网络是否可用
++ (BOOL)IsNetworkValidate;
+
 @end

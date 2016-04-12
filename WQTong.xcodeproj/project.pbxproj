@@ -25,6 +25,8 @@
 		6111FA1F1CB8A41300E61B67 /* WzcLocObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA191CB8A41300E61B67 /* WzcLocObjectModel.m */; };
 		6111FA201CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA1B1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m */; };
 		6111FA211CB8A41300E61B67 /* WzcLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA1D1CB8A41300E61B67 /* WzcLocationModel.m */; };
+		6111FA251CB8EE8C00E61B67 /* PersonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA241CB8EE8C00E61B67 /* PersonVC.m */; };
+		6111FA281CB8F09000E61B67 /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6111FA271CB8F09000E61B67 /* UserInformation.m */; };
 		617DA9351CAB5CB80014269D /* BBTableEmptyTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DA9341CAB5CB80014269D /* BBTableEmptyTipView.m */; };
 		617DA9AC1CAB5EF90014269D /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DA9981CAB5EF90014269D /* CommonTools.m */; };
 		617DA9AD1CAB5EF90014269D /* CustomEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 617DA99A1CAB5EF90014269D /* CustomEmojiView.m */; };
@@ -644,6 +646,10 @@
 		6111FA1B1CB8A41300E61B67 /* WzcLocationModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WzcLocationModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6111FA1C1CB8A41300E61B67 /* WzcLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WzcLocationModel.h; sourceTree = "<group>"; };
 		6111FA1D1CB8A41300E61B67 /* WzcLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WzcLocationModel.m; sourceTree = "<group>"; };
+		6111FA231CB8EE8C00E61B67 /* PersonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonVC.h; path = WQTongProject/Person/PersonVC.h; sourceTree = "<group>"; };
+		6111FA241CB8EE8C00E61B67 /* PersonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonVC.m; path = WQTongProject/Person/PersonVC.m; sourceTree = "<group>"; };
+		6111FA261CB8F09000E61B67 /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
+		6111FA271CB8F09000E61B67 /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		614810351CA61E53002763DD /* CommonMarco_Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMarco_Url.h; path = common/comInclude/CommonMarco_Url.h; sourceTree = "<group>"; };
 		617DA9331CAB5CB80014269D /* BBTableEmptyTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTableEmptyTipView.h; sourceTree = "<group>"; };
 		617DA9341CAB5CB80014269D /* BBTableEmptyTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTableEmptyTipView.m; sourceTree = "<group>"; };
@@ -1596,6 +1602,15 @@
 				610FD6A41CA53E98009A7E7D /* AppDelegate+Map.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6111FA221CB8EE7200E61B67 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				6111FA231CB8EE8C00E61B67 /* PersonVC.h */,
+				6111FA241CB8EE8C00E61B67 /* PersonVC.m */,
+			);
+			name = Person;
 			sourceTree = "<group>";
 		};
 		613DDD521CA67EC300E20DB0 /* Views */ = {
@@ -2720,14 +2735,14 @@
 		617EB78E1CAA688D00DA87EE /* TrackingVC */ = {
 			isa = PBXGroup;
 			children = (
+				618FDC7B1CB73FE700DB68B1 /* OldTrackingViewController.h */,
+				618FDC7C1CB73FE700DB68B1 /* OldTrackingViewController.m */,
 				618FDC751CB73FE700DB68B1 /* CheckRusultsViewController.h */,
 				618FDC761CB73FE700DB68B1 /* CheckRusultsViewController.m */,
 				618FDC771CB73FE700DB68B1 /* DateCheckViewController.h */,
 				618FDC781CB73FE700DB68B1 /* DateCheckViewController.m */,
 				618FDC791CB73FE700DB68B1 /* DateDetailsViewController.h */,
 				618FDC7A1CB73FE700DB68B1 /* DateDetailsViewController.m */,
-				618FDC7B1CB73FE700DB68B1 /* OldTrackingViewController.h */,
-				618FDC7C1CB73FE700DB68B1 /* OldTrackingViewController.m */,
 			);
 			name = TrackingVC;
 			sourceTree = "<group>";
@@ -2910,6 +2925,8 @@
 			children = (
 				618FDC491CB6511900DB68B1 /* UserInformationModel.h */,
 				618FDC4A1CB6511900DB68B1 /* UserInformationModel.m */,
+				6111FA261CB8F09000E61B67 /* UserInformation.h */,
+				6111FA271CB8F09000E61B67 /* UserInformation.m */,
 			);
 			path = UserInformationModel;
 			sourceTree = "<group>";
@@ -3020,6 +3037,7 @@
 		61EA193F1CA3FF71004C74C3 /* WQTongProject */ = {
 			isa = PBXGroup;
 			children = (
+				6111FA221CB8EE7200E61B67 /* Person */,
 				618FDC6B1CB733D600DB68B1 /* GlobalResource */,
 				618FDBFD1CB6312E00DB68B1 /* Yuntx_FullLib_SDK */,
 				610FD6951CA536E9009A7E7D /* ConnectGL */,
@@ -3107,6 +3125,7 @@
 				TargetAttributes = {
 					61EA18C41CA3FCE6004C74C3 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 5S24HFXQHV;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -3636,12 +3655,14 @@
 				617DAD7D1CAB5F560014269D /* MainViewController.m in Sources */,
 				617DACD61CAB5F560014269D /* DeviceDelegateHelper+Meeting.m in Sources */,
 				610FD69E1CA53C7A009A7E7D /* AppDelegate.mm in Sources */,
+				6111FA251CB8EE8C00E61B67 /* PersonVC.m in Sources */,
 				618FDBE01CB5E65B00DB68B1 /* FindEndAnnotation.m in Sources */,
 				617DACB01CAB5F560014269D /* MKAnnotationView+WebCache.m in Sources */,
 				618FDC521CB6511900DB68B1 /* UserInformationModel.m in Sources */,
 				617DAD851CAB5F560014269D /* MultiVideoConfListViewController.m in Sources */,
 				610FD6A51CA53E98009A7E7D /* AppDelegate+Map.m in Sources */,
 				618FDBAC1CB50E8300DB68B1 /* LaunchRequestManager.m in Sources */,
+				6111FA281CB8F09000E61B67 /* UserInformation.m in Sources */,
 				617DACB61CAB5F560014269D /* SDWebImageDownloaderOperation.m in Sources */,
 				6111FA1F1CB8A41300E61B67 /* WzcLocObjectModel.m in Sources */,
 				617DAD6C1CAB5F560014269D /* GroupListViewCell.m in Sources */,
@@ -3810,7 +3831,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3832,6 +3854,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "10dbaa69-71f9-4aac-8f99-c8d021c36e73";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3854,7 +3877,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3869,6 +3893,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "10dbaa69-71f9-4aac-8f99-c8d021c36e73";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3882,6 +3907,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3903,6 +3930,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cc.huaxun.WQTong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "10dbaa69-71f9-4aac-8f99-c8d021c36e73";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3913,6 +3942,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmin Wu (5S24HFXQHV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3934,6 +3965,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cc.huaxun.WQTong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "10dbaa69-71f9-4aac-8f99-c8d021c36e73";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

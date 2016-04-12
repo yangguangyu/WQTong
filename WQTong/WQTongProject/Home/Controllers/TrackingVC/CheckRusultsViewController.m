@@ -33,18 +33,29 @@ static float const mapPadding = 1.1f;
     [super viewDidLoad];
     self.title = @"轨迹查询";
     
-    self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
-    self.mapView.delegate = self;
-    [self.view addSubview:self.mapView];
+    [self initMapView];
 
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
 //                                                                              style: UIBarButtonItemStylePlain
 //                                                                             target:self
 //                                                                            action:@selector(dismissAction:)];
+    [self initUI];
+    
+}
+
+- (void)initMapView {
+    
+    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeiht)];
+    self.mapView.delegate = self;
+    [self.view addSubview:self.mapView];
+    
+}
+
+- (void)initUI {
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"title_bar_back"] style:UIBarButtonItemStyleDone target:self action:@selector(returnClick)];
     self.navigationItem.leftBarButtonItem = item;
-
+    
     
     
     self.rePlayButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-120 ,screenHeiht-250,60, 40)];
@@ -61,12 +72,12 @@ static float const mapPadding = 1.1f;
     maskLayer2.frame = self.rePlayButton.bounds;
     maskLayer2.path = maskPath2.CGPath;
     self.rePlayButton.layer.mask = maskLayer2;
-
+    
     [self.rePlayButton setTitle:@"回放" forState:UIControlStateNormal];
     [self.rePlayButton addTarget:self action:@selector(handleRunAction) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:self.rePlayButton];
-
 }
+
 
 - (void)returnClick {
     
@@ -117,7 +128,7 @@ static float const mapPadding = 1.1f;
     self.annotations = [NSMutableArray array];
     [self.annotations addObject:self.startPointAnnotation];
     [self.annotations addObject:self.endPointAnnotation];
-    [self.mapView showAnnotations:self.annotations edgePadding:UIEdgeInsetsMake(20, 20, 20, 80) animated:YES];
+    [self.mapView showAnnotations:self.annotations edgePadding:UIEdgeInsetsMake(50, 50, 50,50) animated:YES];
     
 }
 
@@ -179,7 +190,7 @@ static float const mapPadding = 1.1f;
         MAPolylineRenderer *polylineView = [[MAPolylineRenderer alloc] initWithPolyline:overlay];
         
         polylineView.lineWidth   = 4.f;
-        polylineView.strokeColor = [UIColor redColor];
+        polylineView.strokeColor = themeColor;
         return  polylineView;
     }
     
@@ -228,6 +239,19 @@ static float const mapPadding = 1.1f;
     }
     
     return nil;
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [self clearMapView];
+}
+
+- (void)clearMapView {
+    
+    self.mapView.showsUserLocation = NO;
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeOverlays:self.mapView.overlays];
+    self.mapView.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -58,6 +58,19 @@ static float const mapPadding = 1.1f;
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [self clearMapView];
+}
+
+- (void)clearMapView {
+    
+    self.mapView.showsUserLocation = NO;
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeOverlays:self.mapView.overlays];
+    self.mapView.delegate = nil;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -97,7 +110,7 @@ static float const mapPadding = 1.1f;
     self.annotations = [NSMutableArray array];
     [self.annotations addObject:self.startPointAnnotation];
     [self.annotations addObject:self.endPointAnnotation];
-    [self.mapView showAnnotations:self.annotations edgePadding:UIEdgeInsetsMake(20, 20, 20, 80) animated:YES];
+    [self.mapView showAnnotations:self.annotations edgePadding:UIEdgeInsetsMake(50, 50, 50,50) animated:YES];
     
 }
 
@@ -153,7 +166,7 @@ static float const mapPadding = 1.1f;
         MAPolylineRenderer *polylineView = [[MAPolylineRenderer alloc] initWithPolyline:overlay];
         
         polylineView.lineWidth   = 4.f;
-        polylineView.strokeColor = [UIColor redColor];
+        polylineView.strokeColor = themeColor;
         return  polylineView;
     }
     

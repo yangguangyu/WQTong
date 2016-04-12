@@ -187,7 +187,8 @@
 {
     self.shapeLayer = [[CAShapeLayer alloc] init];
     self.shapeLayer.lineWidth         = 4;
-    self.shapeLayer.strokeColor       = [UIColor redColor].CGColor;
+//    self.shapeLayer.strokeColor       = [UIColor redColor].CGColor;
+     self.shapeLayer.strokeColor      = themeColor.CGColor;
     self.shapeLayer.fillColor         = [UIColor clearColor].CGColor;
     self.shapeLayer.lineJoin          = kCALineCapRound;
 }

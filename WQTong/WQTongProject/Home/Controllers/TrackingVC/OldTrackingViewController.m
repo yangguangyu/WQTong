@@ -43,14 +43,11 @@ static float const mapPadding = 1.1f;
 @property (nonatomic, strong) UIButton * checkButton;//查询按钮
 
 @property (nonatomic, strong) UILabel * historylabel;
-
 @property (nonatomic, strong) UITextField * startTimeTextField;
 
 @end
 
 @implementation OldTrackingViewController
-
-
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -58,7 +55,7 @@ static float const mapPadding = 1.1f;
      //初始化SQL查询
      self.firstRunArray = [WzcLocObjectModel MR_findAllSortedBy:@"timestamp" ascending:NO];
     
-     NSLog(@"self.frstarray is %@",self.firstRunArray);
+     //NSLog(@"self.frstarray is %@",self.firstRunArray);
     
      if (self.firstRunArray != nil && ![self.firstRunArray isKindOfClass:[NSNull class]] && self.firstRunArray.count != 0) {
         
@@ -68,8 +65,8 @@ static float const mapPadding = 1.1f;
         NSMutableArray * longitudeArray = [[NSMutableArray alloc]init];
         
         for (WzcLocationModel * location in firstRunObject.locations.array) {
-            NSLog(@"location is %@",location.latitude);
-            NSLog(@"location is %@",location.longitude);
+//            NSLog(@"location is %@",location.latitude);
+//            NSLog(@"location is %@",location.longitude);
             [latitudeArray addObject:location.latitude];
             [longitudeArray addObject:location.longitude];
         }
@@ -109,10 +106,22 @@ static float const mapPadding = 1.1f;
     self.title = @"历史轨迹";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self initMapView];
+    
+    [self initUI];
+    
+    //[self initZoomView];
+}
+
+- (void)initMapView {
+    
     self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(15, 130, screenWidth-30, screenHeiht-200)];
     [self.view addSubview:self.mapView];
     self.mapView.delegate = self;
     
+}
+
+- (void)initUI {
     //历史轨迹查询Label
     self.historylabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 80,100, 30)];
     self.historylabel.font = [UIFont fontWithName:@"Helvetica" size:15];
@@ -130,8 +139,9 @@ static float const mapPadding = 1.1f;
     self.startTimeTextField.layer.borderWidth= 1.0f;
     [self.startTimeTextField setAutocorrectionType:UITextAutocorrectionTypeNo];//去掉键盘输入时默认字母为大写
     [self.startTimeTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+    self.startTimeTextField.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.startTimeTextField];
-
+    
     
     //查询按钮
     self.checkButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth-80,75,60,40)];
@@ -162,13 +172,13 @@ static float const mapPadding = 1.1f;
     self.rePlayButton.layer.borderColor = (__bridge CGColorRef _Nullable)(themeColor);
     self.rePlayButton.layer.masksToBounds = YES;
     [self.rePlayButton setShowsTouchWhenHighlighted:YES];
-
+    
     UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.rePlayButton.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
     CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
     maskLayer2.frame = self.rePlayButton.bounds;
     maskLayer2.path = maskPath2.CGPath;
     self.rePlayButton.layer.mask = maskLayer2;
-
+    
     [self.rePlayButton setTitle:@"回放" forState:UIControlStateNormal];
     [self.rePlayButton addTarget:self action:@selector(rePlayButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:self.rePlayButton];
@@ -195,14 +205,12 @@ static float const mapPadding = 1.1f;
     startDatePicker.maxLimitDate = [now dateByAddingTimeInterval:2222];
     
     self.startTimeTextField.inputView = startDatePicker;
-
-    
 }
 
 - (void)checkbuttonAction:(UIButton *)button {
     
     self.runArray = [WzcLocObjectModel MR_findAllSortedBy:@"timestamp" ascending:NO];
-    NSLog(@"self.runArray is %@",self.runArray);
+//    NSLog(@"self.runArray is %@",self.runArray);
     
     if (self.runArray != nil && ![self.runArray isKindOfClass:[NSNull class]] && self.runArray.count != 0)
     {
@@ -215,10 +223,10 @@ static float const mapPadding = 1.1f;
             NSArray *listData = [WzcLocObjectModel MR_executeFetchRequest:fetchRequest];
             self.findRunObject = [listData lastObject];
             
-            NSLog(@"self.findFunObject is %@",self.findRunObject);
+//            NSLog(@"self.findFunObject is %@",self.findRunObject);
             
             [GlobalResource sharedInstance].resultRunObject = self.findRunObject;
-            CheckRusultsViewController * check = [[CheckRusultsViewController alloc]init];
+            CheckRusultsViewController *check = [[CheckRusultsViewController alloc]init];
             [self presentViewController: [[UINavigationController alloc] initWithRootViewController:check] animated:YES completion:nil];
             
         }
@@ -239,6 +247,7 @@ static float const mapPadding = 1.1f;
     self.tracking.duration = 5.f;
     self.tracking.edgeInsets = UIEdgeInsetsMake(50, 50, 50, 50);
     [self.mapView setRegion:[self mapRegion]];
+    [self.mapView removeOverlays:self.mapView.overlays];
     [self.tracking execute];
 }
 
@@ -264,7 +273,7 @@ static float const mapPadding = 1.1f;
     float maxLng = initialLoc.longitude.floatValue;
     
     for (WzcLocationModel *location in self.locations) {
-        NSLog(@"location is %@",location.latitude);
+//        NSLog(@"location is %@",location.latitude);
         if (location.latitude.floatValue < minLat) {
             minLat = location.latitude.floatValue;
         }
@@ -297,7 +306,7 @@ static float const mapPadding = 1.1f;
         MAPolylineRenderer *polylineView = [[MAPolylineRenderer alloc] initWithPolyline:overlay];
         
         polylineView.lineWidth   = 4.f;
-        polylineView.strokeColor = [UIColor redColor];
+        polylineView.strokeColor = themeColor;
         return  polylineView;
     }
     
@@ -367,7 +376,7 @@ static float const mapPadding = 1.1f;
     [self.view endEditing:YES];
 }
 
-- (void)zoom {
+- (void)initZoomView {
     
     zoomoutButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [zoomoutButton setTitle:@"放大" forState:UIControlStateNormal];
@@ -415,7 +424,7 @@ static float const mapPadding = 1.1f;
                   toItem:self.view
                   attribute:NSLayoutAttributeBottom
                   multiplier:1.0f
-                  constant:-80.0f];
+                  constant:-150.0f];
     [self.view addConstraint:constraint];
     
     //zoominButton布局
@@ -444,7 +453,7 @@ static float const mapPadding = 1.1f;
                         toItem:self.view
                         attribute:NSLayoutAttributeBottom
                         multiplier:1.0f
-                        constant:-55.0f];
+                        constant:-125.0f];
     [self.view addConstraint:constraintZoomIn];
 }
 

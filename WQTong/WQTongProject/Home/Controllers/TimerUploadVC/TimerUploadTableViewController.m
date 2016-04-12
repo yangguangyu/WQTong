@@ -11,7 +11,7 @@
 
 @interface TimerUploadTableViewController ()
 
-@property (strong, nonatomic) NSArray *timerResultsArray;
+@property (nonatomic, strong) NSArray *timerResultsArray;
 
 @end
 
@@ -76,8 +76,7 @@
         }
         return cell;
     }
-    return nil;
-
+        return nil;
 }
 
 @end

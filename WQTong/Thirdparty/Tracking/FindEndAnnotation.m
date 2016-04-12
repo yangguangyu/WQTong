@@ -2,7 +2,7 @@
 //  FindEndAnnotation.m
 //  waiqintong
 //
-//  Created by Apple on 11/12/15.
+//  Created by ChenBinbin on 11/12/15.
 //  Copyright © 2015 cnbin. All rights reserved.
 //
 

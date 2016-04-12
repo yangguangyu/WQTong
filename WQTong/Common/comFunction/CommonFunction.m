@@ -21,8 +21,7 @@ __strong static CommonFunction *share = nil;
 }
 
 //输入日期对象，根据格式返回日期字符串; strFormat,"yyyy-MM-dd HH:mm:ss"
-+ (NSString *)stringFromDate:(NSDate *)date format:(NSString*)strFormat;
-{
++ (NSString *)stringFromDate:(NSDate *)date format:(NSString*)strFormat {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:strFormat];
     NSString *destDateString = [dateFormatter stringFromDate:date];
@@ -97,6 +96,36 @@ __strong static CommonFunction *share = nil;
     
     NSString * timeNumberString = [[[[yearString stringByAppendingString:monthString]stringByAppendingString: dayString]stringByAppendingString: hourString]stringByAppendingString:minuteString];
     return timeNumberString ;
+}
+
+
+//判断网络是否可用
++ (BOOL)IsNetworkValidate
+{
+    BOOL bIsNetworkValidate = NO;
+    Reachability *curReach = [Reachability reachabilityForInternetConnection];
+    switch ([curReach currentReachabilityStatus])
+    {
+        case NotReachable://没有网络
+        {
+            bIsNetworkValidate = NO;
+            break;
+        }
+        case ReachableViaWiFi://有wifi
+        {
+            bIsNetworkValidate = YES;
+            break;
+        }
+        case ReachableViaWWAN://有3G
+        {
+            bIsNetworkValidate = YES;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return bIsNetworkValidate;
 }
 
 @end
